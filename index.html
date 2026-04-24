@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seoyoung Lee — Security & Audit Portfolio</title>
-<meta name="description" content="Digital Forensics & IT Security Specialist. AML, Privacy, Blockchain Forensics, Audit Automation.">
+<title>Seoyoung Lee — Security &amp; Audit Portfolio</title>
+<meta name="description" content="Digital Forensics &amp; IT Security Specialist. AML, Privacy, Blockchain Forensics, Audit Automation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* DARK (default) */
     --bg: #06080c;
     --bg-2: #0a0d14;
     --bg-3: #101520;
@@ -30,855 +28,1398 @@
     --serif: 'Fraunces', Georgia, serif;
   }
 
-[data-theme=“light”] {
-–bg: #fafaf7;
-–bg-2: #f2f0ea;
-–bg-3: #e8e5dc;
-–ink: #0a0d14;
-–ink-dim: #3f4a60;
-–ink-faint: #8591a8;
-–line: #d6d2c4;
-–line-bright: #a8a294;
-–cyan: #0891b2;
-–cyan-dim: #0e7490;
-–amber: #b45309;
-–amber-dim: #92400e;
-}
+  [data-theme="light"] {
+    --bg: #fafaf7;
+    --bg-2: #f2f0ea;
+    --bg-3: #e8e5dc;
+    --ink: #0a0d14;
+    --ink-dim: #3f4a60;
+    --ink-faint: #8591a8;
+    --line: #d6d2c4;
+    --line-bright: #a8a294;
+    --cyan: #0891b2;
+    --cyan-dim: #0e7490;
+    --amber: #b45309;
+    --amber-dim: #92400e;
+  }
 
-- { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-  background: var(–bg);
-  color: var(–ink);
-  font-family: var(–sans);
-  overflow-x: hidden;
-  min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
-  font-size: 16px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 16px;
   }
-  [data-theme=“light”] body::after { opacity: 0.4; }
+  [data-theme="light"] body::after { opacity: 0.4; }
 
-/* Grain overlay */
-body::before {
-content: ‘’;
-position: fixed;
-inset: 0;
-pointer-events: none;
-z-index: 100;
-opacity: 0.04;
-background-image:
-url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’/%3E%3C/svg%3E”);
-}
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.04;
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
-/* Scan lines */
-body::after {
-content: ‘’;
-position: fixed;
-inset: 0;
-pointer-events: none;
-z-index: 99;
-background: repeating-linear-gradient(
-0deg,
-transparent 0,
-transparent 3px,
-rgba(94, 234, 212, 0.015) 3px,
-rgba(94, 234, 212, 0.015) 4px
-);
-}
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(94, 234, 212, 0.015) 3px,
+      rgba(94, 234, 212, 0.015) 4px
+    );
+  }
 
-::selection { background: var(–cyan); color: var(–bg); }
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(–bg); }
-::-webkit-scrollbar-thumb { background: var(–line-bright); }
+  ::selection { background: var(--cyan); color: var(--bg); }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--line-bright); }
 
-/* ============ NAV ============ */
-nav {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-z-index: 50;
-padding: 20px 40px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: linear-gradient(to bottom, rgba(6, 8, 12, 0.9), transparent);
-backdrop-filter: blur(8px);
-transition: background 0.3s ease;
-}
-[data-theme=“light”] nav {
-background: linear-gradient(to bottom, rgba(250, 250, 247, 0.92), transparent);
-}
-.nav-logo {
-font-family: var(–mono);
-font-size: 13px;
-color: var(–cyan);
-letter-spacing: 2px;
-text-transform: uppercase;
-font-weight: 500;
-}
-.nav-logo::before {
-content: ‘█’;
-margin-right: 6px;
-animation: blink 1s step-end infinite;
-}
-@keyframes blink {
-0%, 50% { opacity: 1; }
-51%, 100% { opacity: 0; }
-}
-.nav-actions {
-display: flex;
-align-items: center;
-gap: 20px;
-}
-.nav-links {
-display: flex;
-gap: 32px;
-list-style: none;
-}
-.nav-links a {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–ink-dim);
-text-decoration: none;
-letter-spacing: 1.5px;
-text-transform: uppercase;
-transition: color 0.2s;
-position: relative;
-font-weight: 500;
-}
-.nav-links a:hover { color: var(–cyan); }
-.nav-links a::before {
-content: attr(data-num);
-color: var(–ink-faint);
-margin-right: 6px;
-}
-.icon-btn {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–amber);
-background: transparent;
-border: 1px solid var(–line-bright);
-padding: 8px 12px;
-cursor: pointer;
-letter-spacing: 1.5px;
-transition: all 0.2s;
-display: inline-flex;
-align-items: center;
-gap: 6px;
-font-weight: 500;
-}
-.icon-btn:hover { border-color: var(–amber); background: rgba(251, 191, 36, 0.08); }
-.lang-toggle { color: var(–amber); }
-.theme-toggle { color: var(–cyan); }
-.theme-toggle:hover { border-color: var(–cyan); background: rgba(94, 234, 212, 0.08); }
-.theme-icon {
-font-size: 14px;
-line-height: 1;
-}
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(6, 8, 12, 0.9), transparent);
+    backdrop-filter: blur(8px);
+    transition: background 0.3s ease;
+  }
+  [data-theme="light"] nav {
+    background: linear-gradient(to bottom, rgba(250, 250, 247, 0.92), transparent);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .nav-logo::before {
+    content: '█';
+    margin-right: 6px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .icon-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--amber);
+    background: transparent;
+    border: 1px solid var(--line-bright);
+    padding: 8px 12px;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+  .icon-btn:hover { border-color: var(--amber); background: rgba(251, 191, 36, 0.08); }
+  .lang-toggle { color: var(--amber); }
+  .theme-toggle { color: var(--cyan); }
+  .theme-toggle:hover { border-color: var(--cyan); background: rgba(94, 234, 212, 0.08); }
+  .theme-icon { font-size: 14px; line-height: 1; }
 
-/* ============ HERO ============ */
-.hero {
-min-height: 100vh;
-display: flex;
-align-items: center;
-padding: 120px 40px 80px;
-position: relative;
-}
-.hero-grid {
-position: absolute;
-inset: 0;
-background-image:
-linear-gradient(rgba(94, 234, 212, 0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(94, 234, 212, 0.04) 1px, transparent 1px);
-background-size: 60px 60px;
-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
--webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-}
-[data-theme=“light”] .hero-grid {
-background-image:
-linear-gradient(rgba(8, 145, 178, 0.08) 1px, transparent 1px),
-linear-gradient(90deg, rgba(8, 145, 178, 0.08) 1px, transparent 1px);
-}
-[data-theme=“light”] .status-dot {
-box-shadow: 0 0 8px rgba(8, 145, 178, 0.5);
-}
-.hero-content {
-position: relative;
-z-index: 2;
-max-width: 1400px;
-margin: 0 auto;
-width: 100%;
-display: grid;
-grid-template-columns: 1fr auto;
-gap: 80px;
-align-items: center;
-}
-.hero-terminal {
-font-family: var(–mono);
-font-size: 13px;
-color: var(–cyan-dim);
-margin-bottom: 32px;
-opacity: 0;
-animation: fadeUp 0.6s ease-out 0.2s forwards;
-font-weight: 500;
-}
-.hero-terminal .prompt { color: var(–amber); }
-.hero-terminal .typing {
-display: inline-block;
-border-right: 2px solid var(–cyan);
-animation: caret 0.8s step-end infinite;
-white-space: nowrap;
-overflow: hidden;
-}
-@keyframes caret {
-0%, 50% { border-color: var(–cyan); }
-51%, 100% { border-color: transparent; }
-}
-.hero h1 {
-font-family: var(–serif);
-font-weight: 300;
-font-style: italic;
-font-size: clamp(52px, 8vw, 120px);
-line-height: 0.95;
-letter-spacing: -0.03em;
-margin-bottom: 28px;
-opacity: 0;
-animation: fadeUp 0.8s ease-out 0.4s forwards;
-}
-.hero h1 .name {
-font-style: normal;
-font-weight: 500;
-display: block;
-font-family: var(–sans);
-font-size: clamp(40px, 6vw, 84px);
-color: var(–ink);
-letter-spacing: -0.04em;
-}
-.hero h1 .accent {
-color: var(–cyan);
-font-style: italic;
-}
-.hero-tagline {
-font-family: var(–mono);
-font-size: 15px;
-color: var(–ink-dim);
-max-width: 580px;
-line-height: 1.9;
-margin-bottom: 48px;
-opacity: 0;
-animation: fadeUp 0.8s ease-out 0.6s forwards;
-font-weight: 400;
-}
-.hero-tagline .hl { color: var(–cyan); font-weight: 500; }
-.hero-tags {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-margin-bottom: 48px;
-opacity: 0;
-animation: fadeUp 0.8s ease-out 0.8s forwards;
-}
-.tag {
-font-family: var(–mono);
-font-size: 11px;
-color: var(–ink-dim);
-padding: 7px 14px;
-border: 1px solid var(–line-bright);
-letter-spacing: 1.5px;
-text-transform: uppercase;
-transition: all 0.2s;
-font-weight: 500;
-}
-.tag:hover {
-border-color: var(–cyan);
-color: var(–cyan);
-background: rgba(94, 234, 212, 0.05);
-}
-.hero-cta {
-display: flex;
-gap: 20px;
-opacity: 0;
-animation: fadeUp 0.8s ease-out 1s forwards;
-}
-.btn {
-font-family: var(–mono);
-font-size: 13px;
-letter-spacing: 2px;
-text-transform: uppercase;
-padding: 16px 32px;
-text-decoration: none;
-cursor: pointer;
-transition: all 0.25s;
-border: 1px solid;
-display: inline-flex;
-align-items: center;
-gap: 10px;
-font-weight: 500;
-}
-.btn-primary {
-background: var(–cyan);
-color: var(–bg);
-border-color: var(–cyan);
-}
-.btn-primary:hover {
-background: transparent;
-color: var(–cyan);
-box-shadow: 0 0 24px rgba(94, 234, 212, 0.4);
-}
-.btn-ghost {
-background: transparent;
-color: var(–ink);
-border-color: var(–line-bright);
-}
-.btn-ghost:hover {
-border-color: var(–amber);
-color: var(–amber);
-}
+  /* 탭 바 — nav 바로 아래 sticky */
+  .tab-bar {
+    position: sticky;
+    top: 68px;
+    z-index: 40;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    padding: 12px 40px 0;
+    background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .tab-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: transparent;
+    border: none;
+    padding: 14px 28px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .tab-btn:hover { color: var(--ink-dim); }
+  .tab-btn[aria-selected="true"] {
+    color: var(--cyan);
+  }
+  .tab-btn[aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    left: 20%; right: 20%;
+    bottom: -1px;
+    height: 2px;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+  }
+  .tab-btn .num {
+    color: var(--ink-faint);
+    margin-right: 8px;
+    font-weight: 400;
+  }
+  .tab-btn[aria-selected="true"] .num { color: var(--cyan-dim); }
 
-/* Hero right side - status card */
-.hero-status {
-border: 1px solid var(–line);
-background: rgba(10, 13, 20, 0.6);
-backdrop-filter: blur(4px);
-padding: 28px;
-min-width: 340px;
-opacity: 0;
-animation: fadeUp 0.8s ease-out 0.8s forwards;
-}
-.status-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding-bottom: 16px;
-border-bottom: 1px solid var(–line);
-margin-bottom: 20px;
-}
-.status-label {
-font-family: var(–mono);
-font-size: 11px;
-color: var(–ink-faint);
-letter-spacing: 2px;
-text-transform: uppercase;
-font-weight: 500;
-}
-.status-dot {
-display: inline-block;
-width: 8px;
-height: 8px;
-background: var(–cyan);
-border-radius: 50%;
-margin-right: 8px;
-animation: pulse 2s ease-in-out infinite;
-box-shadow: 0 0 12px var(–cyan);
-}
-@keyframes pulse {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.4; }
-}
-.status-row {
-display: flex;
-justify-content: space-between;
-align-items: baseline;
-padding: 11px 0;
-font-family: var(–mono);
-font-size: 12px;
-border-bottom: 1px dashed var(–line);
-gap: 16px;
-}
-.status-row:last-child { border-bottom: none; }
-.status-row .key { color: var(–ink-faint); letter-spacing: 1px; font-weight: 500; }
-.status-row .val { color: var(–ink); font-weight: 500; text-align: right; }
-.status-row .val.accent { color: var(–cyan); }
+  .tab-panel[hidden] { display: none; }
+  .tab-panel {
+    animation: panelIn 0.45s ease-out;
+  }
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
-}
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 80px;
+    position: relative;
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(94, 234, 212, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(94, 234, 212, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+  [data-theme="light"] .hero-grid {
+    background-image:
+      linear-gradient(rgba(8, 145, 178, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(8, 145, 178, 0.08) 1px, transparent 1px);
+  }
+  [data-theme="light"] .status-dot {
+    box-shadow: 0 0 8px rgba(8, 145, 178, 0.5);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-terminal {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--cyan-dim);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.15s forwards;
+    font-weight: 500;
+  }
+  .hero-terminal .prompt { color: var(--amber); }
+  .hero-terminal .typing {
+    display: inline-block;
+    border-right: 2px solid var(--cyan);
+    animation: caret 0.8s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  @keyframes caret {
+    0%, 50% { border-color: var(--cyan); }
+    51%, 100% { border-color: transparent; }
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(52px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.3s forwards;
+  }
+  .hero h1 .name {
+    font-style: normal;
+    font-weight: 500;
+    display: block;
+    font-family: var(--sans);
+    font-size: clamp(40px, 6vw, 84px);
+    color: var(--ink);
+    letter-spacing: -0.04em;
+  }
+  .hero h1 .accent {
+    color: var(--cyan);
+    font-style: italic;
+  }
+  .hero-tagline {
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--ink-dim);
+    max-width: 580px;
+    line-height: 1.9;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.5s forwards;
+    font-weight: 400;
+  }
+  .hero-tagline .hl { color: var(--cyan); font-weight: 500; }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.7s forwards;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    padding: 7px 14px;
+    border: 1px solid var(--line-bright);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .tag:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(94, 234, 212, 0.05);
+  }
+  .hero-cta {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.9s forwards;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: 1px solid;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    background: transparent;
+  }
+  .btn-primary {
+    background: var(--cyan);
+    color: var(--bg);
+    border-color: var(--cyan);
+  }
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--cyan);
+    box-shadow: 0 0 24px rgba(94, 234, 212, 0.4);
+  }
+  .btn-ghost {
+    color: var(--ink);
+    border-color: var(--line-bright);
+  }
+  .btn-ghost:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
 
-/* ============ SECTION COMMON ============ */
-section {
-padding: 120px 40px;
-max-width: 1400px;
-margin: 0 auto;
-position: relative;
-}
-.section-label {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–cyan);
-letter-spacing: 3px;
-text-transform: uppercase;
-margin-bottom: 16px;
-font-weight: 500;
-}
-.section-label::before {
-content: ’// ’;
-color: var(–ink-faint);
-}
-.section-title {
-font-family: var(–serif);
-font-weight: 300;
-font-size: clamp(44px, 6vw, 76px);
-line-height: 1;
-letter-spacing: -0.02em;
-margin-bottom: 24px;
-}
-.section-title .italic { font-style: italic; color: var(–cyan); }
-.section-desc {
-font-family: var(–mono);
-font-size: 15px;
-color: var(–ink-dim);
-max-width: 680px;
-line-height: 1.9;
-margin-bottom: 72px;
-font-weight: 400;
-}
+  .hero-status {
+    border: 1px solid var(--line);
+    background: rgba(10, 13, 20, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 28px;
+    min-width: 340px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.7s forwards;
+  }
+  [data-theme="light"] .hero-status {
+    background: rgba(250, 250, 247, 0.6);
+  }
+  .status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
+  .status-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 12px var(--cyan);
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 11px 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    border-bottom: 1px dashed var(--line);
+    gap: 16px;
+  }
+  .status-row:last-child { border-bottom: none; }
+  .status-row .key { color: var(--ink-faint); letter-spacing: 1px; font-weight: 500; }
+  .status-row .val { color: var(--ink); font-weight: 500; text-align: right; }
+  .status-row .val.accent { color: var(--cyan); }
 
-/* ============ IMPACT METRICS ============ */
-.metrics {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 0;
-border-top: 1px solid var(–line);
-border-bottom: 1px solid var(–line);
-margin: 60px 0;
-}
-.metric {
-padding: 40px 32px;
-border-right: 1px solid var(–line);
-position: relative;
-overflow: hidden;
-}
-.metric:last-child { border-right: none; }
-.metric::before {
-content: ‘’;
-position: absolute;
-top: 0; left: 0;
-width: 0;
-height: 2px;
-background: var(–cyan);
-transition: width 0.6s ease-out;
-}
-.metric.visible::before { width: 100%; }
-.metric-value {
-font-family: var(–serif);
-font-weight: 300;
-font-style: italic;
-font-size: 60px;
-line-height: 1;
-color: var(–cyan);
-margin-bottom: 10px;
-}
-.metric-label {
-font-family: var(–mono);
-font-size: 11px;
-color: var(–ink-dim);
-letter-spacing: 2px;
-text-transform: uppercase;
-font-weight: 500;
-}
-.metric-sub {
-font-family: var(–mono);
-font-size: 11px;
-color: var(–ink-faint);
-margin-top: 8px;
-}
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-/* ============ PROJECTS ============ */
-.projects-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 2px;
-background: var(–line);
-border: 1px solid var(–line);
-}
-.project {
-background: var(–bg);
-padding: 48px 40px;
-position: relative;
-transition: all 0.4s ease;
-cursor: pointer;
-min-height: 400px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-overflow: hidden;
-}
-.project::after {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, transparent 0%, rgba(94, 234, 212, 0.03) 100%);
-opacity: 0;
-transition: opacity 0.4s;
-pointer-events: none;
-}
-.project:hover {
-background: var(–bg-2);
-}
-.project:hover::after { opacity: 1; }
-.project-header {
-display: flex;
-justify-content: space-between;
-align-items: flex-start;
-gap: 20px;
-margin-bottom: 24px;
-}
-.project-id {
-font-family: var(–mono);
-font-size: 11px;
-color: var(–ink-faint);
-letter-spacing: 2px;
-font-weight: 500;
-}
-.project-status {
-font-family: var(–mono);
-font-size: 10px;
-padding: 5px 11px;
-border: 1px solid var(–line-bright);
-color: var(–ink-dim);
-letter-spacing: 1.5px;
-text-transform: uppercase;
-white-space: nowrap;
-font-weight: 500;
-}
-.project-status.deployed { border-color: var(–cyan); color: var(–cyan); }
-.project-status.research { border-color: var(–amber); color: var(–amber); }
-.project-company {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–cyan);
-letter-spacing: 2px;
-margin-bottom: 18px;
-text-transform: uppercase;
-font-weight: 500;
-}
-.project-title {
-font-family: var(–serif);
-font-weight: 400;
-font-size: 30px;
-line-height: 1.15;
-letter-spacing: -0.01em;
-margin-bottom: 22px;
-color: var(–ink);
-}
-.project-title .italic { font-style: italic; color: var(–cyan); }
-.project-desc {
-font-family: var(–mono);
-font-size: 13px;
-line-height: 1.85;
-color: var(–ink-dim);
-margin-bottom: 28px;
-font-weight: 400;
-}
-.project-impact {
-display: flex;
-gap: 28px;
-padding-top: 24px;
-border-top: 1px solid var(–line);
-margin-top: auto;
-}
-.impact-item .val {
-font-family: var(–serif);
-font-weight: 500;
-font-size: 24px;
-color: var(–cyan);
-font-style: italic;
-display: block;
-line-height: 1;
-}
-.impact-item .lbl {
-font-family: var(–mono);
-font-size: 10px;
-color: var(–ink-faint);
-letter-spacing: 1.5px;
-text-transform: uppercase;
-margin-top: 8px;
-display: block;
-font-weight: 500;
-}
-.project-tags {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-margin-bottom: 24px;
-}
-.project-tag {
-font-family: var(–mono);
-font-size: 10px;
-color: var(–ink-dim);
-padding: 4px 10px;
-border: 1px solid var(–line);
-letter-spacing: 1px;
-font-weight: 500;
-}
+  section.block {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cyan);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .section-label::before {
+    content: '// ';
+    color: var(--ink-faint);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .section-title .italic { font-style: italic; color: var(--cyan); }
+  .section-desc {
+    font-family: var(--mono);
+    font-size: 15px;
+    color: var(--ink-dim);
+    max-width: 680px;
+    line-height: 1.9;
+    margin-bottom: 72px;
+    font-weight: 400;
+  }
 
-/* ============ TIMELINE ============ */
-.timeline {
-position: relative;
-margin-top: 60px;
-padding-left: 40px;
-}
-.timeline::before {
-content: ‘’;
-position: absolute;
-left: 8px;
-top: 8px;
-bottom: 8px;
-width: 1px;
-background: linear-gradient(to bottom, var(–cyan), var(–line), var(–line-bright));
-}
-.timeline-entry {
-position: relative;
-padding-bottom: 56px;
-}
-.timeline-entry::before {
-content: ‘’;
-position: absolute;
-left: -39px;
-top: 8px;
-width: 16px;
-height: 16px;
-border: 2px solid var(–cyan);
-background: var(–bg);
-border-radius: 50%;
-}
-.timeline-entry::after {
-content: ‘’;
-position: absolute;
-left: -33px;
-top: 14px;
-width: 4px;
-height: 4px;
-background: var(–cyan);
-border-radius: 50%;
-box-shadow: 0 0 8px var(–cyan);
-}
-.timeline-date {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–cyan);
-letter-spacing: 2px;
-margin-bottom: 10px;
-font-weight: 500;
-}
-.timeline-company {
-font-family: var(–serif);
-font-size: 24px;
-font-weight: 500;
-color: var(–ink);
-margin-bottom: 6px;
-}
-.timeline-role {
-font-family: var(–mono);
-font-size: 13px;
-color: var(–ink-dim);
-margin-bottom: 14px;
-letter-spacing: 0.5px;
-font-weight: 500;
-}
-.timeline-desc {
-font-family: var(–mono);
-font-size: 13px;
-color: var(–ink-dim);
-line-height: 1.9;
-max-width: 680px;
-font-weight: 400;
-}
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 60px 0;
+  }
+  .metric {
+    padding: 40px 32px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .metric:last-child { border-right: none; }
+  .metric::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cyan);
+    transition: width 0.6s ease-out;
+  }
+  .metric.visible::before { width: 100%; }
+  .metric-value {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 60px;
+    line-height: 1;
+    color: var(--cyan);
+    margin-bottom: 10px;
+  }
+  .metric-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .metric-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 8px;
+  }
 
-/* ============ SKILLS ============ */
-.skills-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 40px;
-margin-top: 40px;
-}
-.skill-group {
-border-top: 1px solid var(–line);
-padding-top: 24px;
-}
-.skill-group-label {
-font-family: var(–mono);
-font-size: 11px;
-color: var(–cyan);
-letter-spacing: 2px;
-text-transform: uppercase;
-margin-bottom: 22px;
-font-weight: 500;
-}
-.skill-list {
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
-}
-.skill-chip {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–ink-dim);
-padding: 8px 15px;
-border: 1px solid var(–line-bright);
-transition: all 0.2s;
-cursor: default;
-font-weight: 500;
-}
-.skill-chip:hover {
-border-color: var(–cyan);
-color: var(–cyan);
-background: rgba(94, 234, 212, 0.05);
-}
-.skill-chip.featured {
-border-color: var(–amber);
-color: var(–amber);
-}
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .project {
+    background: var(--bg);
+    padding: 48px 40px;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .project::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(94, 234, 212, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .project:hover {
+    background: var(--bg-2);
+  }
+  .project:hover::after { opacity: 1; }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .project-id {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+  .project-status {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 5px 11px;
+    border: 1px solid var(--line-bright);
+    color: var(--ink-dim);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .project-status.deployed { border-color: var(--cyan); color: var(--cyan); }
+  .project-status.research { border-color: var(--amber); color: var(--amber); }
+  .project-status.archived { border-color: var(--line-bright); color: var(--ink-faint); }
+  .project-company {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+    color: var(--ink);
+  }
+  .project-title .italic { font-style: italic; color: var(--cyan); }
+  .project-desc {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--ink-dim);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+  .project-impact {
+    display: flex;
+    gap: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    margin-top: auto;
+  }
+  .impact-item .val {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--cyan);
+    font-style: italic;
+    display: block;
+    line-height: 1;
+  }
+  .impact-item .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+    font-weight: 500;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .project-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-dim);
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
 
-/* ============ EDUCATION & CERT ============ */
-.edu-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 60px;
-margin-top: 40px;
-}
-.edu-block {
-border-left: 2px solid var(–cyan);
-padding-left: 24px;
-}
-.edu-block h3 {
-font-family: var(–serif);
-font-size: 22px;
-font-weight: 500;
-margin-bottom: 20px;
-}
-.edu-item {
-padding: 18px 0;
-border-bottom: 1px dashed var(–line);
-}
-.edu-item:last-child { border-bottom: none; }
-.edu-name {
-font-family: var(–sans);
-font-size: 16px;
-color: var(–ink);
-font-weight: 500;
-margin-bottom: 6px;
-}
-.edu-meta {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–ink-dim);
-letter-spacing: 1px;
-font-weight: 500;
-}
-.edu-note {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–cyan-dim);
-margin-top: 8px;
-font-style: italic;
-line-height: 1.6;
-}
+  /* Research & Side — 컴팩트 리스트 */
+  .side-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 40px;
+  }
+  .side-row {
+    background: var(--bg);
+    padding: 26px 28px;
+    transition: background 0.25s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .side-row:hover { background: var(--bg-2); }
+  .side-row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .side-row-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .side-row-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .side-row-ctx {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .side-row-desc {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--ink-dim);
+    font-weight: 400;
+  }
+  .side-row-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+  }
+  .side-row-tag {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--ink-faint);
+    padding: 3px 8px;
+    border: 1px solid var(--line);
+    letter-spacing: 0.8px;
+  }
 
-/* ============ CONTACT ============ */
-.contact {
-padding: 160px 40px;
-text-align: center;
-border-top: 1px solid var(–line);
-}
-.contact-title {
-font-family: var(–serif);
-font-size: clamp(52px, 8vw, 100px);
-font-weight: 300;
-line-height: 1;
-margin-bottom: 28px;
-}
-.contact-title .italic { font-style: italic; color: var(–cyan); }
-.contact-email {
-display: inline-block;
-font-family: var(–mono);
-font-size: clamp(20px, 3vw, 30px);
-color: var(–cyan);
-text-decoration: none;
-border-bottom: 1px solid var(–cyan);
-padding-bottom: 4px;
-margin-top: 24px;
-transition: all 0.2s;
-font-weight: 500;
-}
-.contact-email:hover {
-color: var(–amber);
-border-color: var(–amber);
-letter-spacing: 1px;
-}
-.contact-meta {
-font-family: var(–mono);
-font-size: 12px;
-color: var(–ink-dim);
-letter-spacing: 2px;
-margin-top: 40px;
-text-transform: uppercase;
-font-weight: 500;
-}
+  .subheading {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 90px 0 18px;
+    font-weight: 500;
+  }
+  .subheading::before {
+    content: '▸ ';
+    color: var(--amber-dim);
+  }
+  .subheading:first-of-type { margin-top: 0; }
 
-footer {
-padding: 32px 40px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-top: 1px solid var(–line);
-font-family: var(–mono);
-font-size: 11px;
-color: var(–ink-dim);
-letter-spacing: 1.5px;
-font-weight: 500;
-}
+  .timeline {
+    position: relative;
+    margin-top: 60px;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--cyan), var(--line), var(--line-bright));
+  }
+  .timeline-entry {
+    position: relative;
+    padding-bottom: 56px;
+  }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -39px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--cyan);
+    background: var(--bg);
+    border-radius: 50%;
+  }
+  .timeline-entry::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 14px;
+    width: 4px;
+    height: 4px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--cyan);
+  }
+  .timeline-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .timeline-company {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .timeline-role {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-dim);
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+  .timeline-desc {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.9;
+    max-width: 680px;
+    font-weight: 400;
+  }
 
-/* ============ REVEAL ANIMATION ============ */
-.reveal {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.reveal.visible {
-opacity: 1;
-transform: translateY(0);
-}
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .skill-group {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .skill-group-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-chip {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    padding: 8px 15px;
+    border: 1px solid var(--line-bright);
+    transition: all 0.2s;
+    cursor: default;
+    font-weight: 500;
+  }
+  .skill-chip:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    background: rgba(94, 234, 212, 0.05);
+  }
+  .skill-chip.featured {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 900px) {
-nav { padding: 14px 20px; }
-.nav-links { display: none; }
-.nav-actions { gap: 8px; }
-.icon-btn { padding: 6px 10px; font-size: 11px; }
-.hero { padding: 100px 20px 60px; }
-.hero-content { grid-template-columns: 1fr; gap: 40px; }
-.hero-status { min-width: unset; }
-section { padding: 80px 20px; }
-.metrics { grid-template-columns: repeat(2, 1fr); }
-.metric { border-right: none; border-bottom: 1px solid var(–line); padding: 32px 24px; }
-.metric:nth-child(odd) { border-right: 1px solid var(–line); }
-.metric-value { font-size: 44px; }
-.projects-grid { grid-template-columns: 1fr; }
-.project { padding: 40px 28px; min-height: auto; }
-.project-title { font-size: 26px; }
-.skills-grid { grid-template-columns: 1fr; }
-.edu-grid { grid-template-columns: 1fr; gap: 40px; }
-footer { flex-direction: column; gap: 12px; }
-.timeline { padding-left: 32px; }
-}
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+  }
+  .edu-block {
+    border-left: 2px solid var(--cyan);
+    padding-left: 24px;
+  }
+  .edu-block h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .edu-item {
+    padding: 18px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-name {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .edu-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .edu-note {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--cyan-dim);
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Studies — thesis & research card */
+  .research-card {
+    border: 1px solid var(--line);
+    padding: 40px;
+    margin-bottom: 24px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .research-card:hover { border-color: var(--line-bright); }
+  .research-kind {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .research-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .research-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+  }
+  .research-desc {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.85;
+    max-width: 780px;
+  }
+
+  /* Paper review table */
+  .paper-table {
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .paper-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 220px;
+    gap: 20px;
+    padding: 22px 4px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s;
+    align-items: baseline;
+  }
+  .paper-row:hover { background: rgba(94, 234, 212, 0.03); }
+  .paper-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .paper-title {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .paper-topic {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--cyan-dim);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+    font-weight: 500;
+  }
+
+  .contact {
+    padding: 160px 40px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 28px;
+  }
+  .contact-title .italic { font-style: italic; color: var(--cyan); }
+  .contact-email {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: clamp(20px, 3vw, 30px);
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cyan);
+    padding-bottom: 4px;
+    margin-top: 24px;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .contact-email:hover {
+    color: var(--amber);
+    border-color: var(--amber);
+    letter-spacing: 1px;
+  }
+  .contact-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 2px;
+    margin-top: 40px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  footer {
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 1.5px;
+    font-weight: 500;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 14px 20px; }
+    .nav-actions { gap: 8px; }
+    .icon-btn { padding: 6px 10px; font-size: 11px; }
+    .tab-bar { top: 56px; padding: 8px 12px 0; overflow-x: auto; justify-content: flex-start; }
+    .tab-btn { padding: 12px 16px; font-size: 11px; letter-spacing: 2px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .hero-status { min-width: unset; }
+    section.block { padding: 60px 20px; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .metric { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 24px; }
+    .metric:nth-child(odd) { border-right: 1px solid var(--line); }
+    .metric-value { font-size: 44px; }
+    .projects-grid, .side-list { grid-template-columns: 1fr; }
+    .project { padding: 40px 28px; min-height: auto; }
+    .project-title { font-size: 26px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; gap: 40px; }
+    .paper-row { grid-template-columns: 40px 1fr; gap: 12px; }
+    .paper-topic { grid-column: 2; text-align: left; margin-top: 4px; }
+    footer { flex-direction: column; gap: 12px; }
+    .timeline { padding-left: 32px; }
+  /* ── risk report card ── */
+  .risk-report {
+    border: 1px solid var(--line);
+    background: rgba(10, 13, 20, 0.45);
+    backdrop-filter: blur(4px);
+    font-family: var(--mono);
+    position: relative;
+    overflow: hidden;
+  }
+  [data-theme="light"] .risk-report { background: rgba(250, 250, 247, 0.55); }
+
+  .rr-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-2);
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .rr-head-left { display: flex; align-items: center; gap: 14px; }
+  .rr-head-label {
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .rr-head-id {
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    font-weight: 500;
+  }
+  .rr-classification {
+    font-size: 9.5px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--amber);
+    font-weight: 500;
+  }
+
+  .rr-hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    padding: 34px 24px;
+    border-bottom: 1px solid var(--line);
+    align-items: end;
+  }
+  .rr-mini-label {
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .rr-hero-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .rr-hero-sub {
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .rr-score {
+    text-align: right;
+    min-width: 260px;
+  }
+  .rr-score-val {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 58px;
+    line-height: 1;
+    color: var(--cyan);
+    margin-bottom: 12px;
+  }
+  .rr-score-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--line);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .rr-score-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 2%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    transform-origin: left;
+    animation: rrFill 1.4s ease-out 0.35s backwards;
+  }
+  @keyframes rrFill {
+    from { width: 0; }
+    to { width: 2%; }
+  }
+  .rr-score-tag {
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .rr-fields {
+    padding: 4px 24px 20px;
+  }
+  .rr-field {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    align-items: baseline;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 13px;
+  }
+  .rr-field:last-child { border-bottom: none; }
+  .rr-field-key {
+    color: var(--ink-faint);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  .rr-field-val {
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .rr-field-sub {
+    color: var(--ink-faint);
+    font-size: 11px;
+    text-align: right;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+  }
+
+  .rr-foot {
+    display: flex;
+    gap: 12px;
+    padding: 11px 22px;
+    border-top: 1px solid var(--line);
+    background: var(--bg-2);
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    align-items: center;
+  }
+  .rr-foot-key {
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .rr-foot-val {
+    color: var(--cyan-dim);
+    word-break: break-all;
+    font-size: 10.5px;
+  }
+
+  /* ── command palette ── */
+  .cmdk-trigger {
+    gap: 10px !important;
+  }
+  .cmdk-kbd {
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .cmdk-trigger-label {
+    color: var(--ink-dim);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+  .cmdk-trigger:hover .cmdk-trigger-label { color: var(--cyan); }
+
+  .cmdk-modal[hidden] { display: none; }
+  .cmdk-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 14vh;
+  }
+  .cmdk-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 8, 12, 0.72);
+    backdrop-filter: blur(6px);
+    animation: cmdkFade 0.15s ease-out;
+  }
+  [data-theme="light"] .cmdk-backdrop { background: rgba(200, 198, 188, 0.55); }
+  .cmdk-panel {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 20px;
+    background: var(--bg-2);
+    border: 1px solid var(--line-bright);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+    font-family: var(--mono);
+    animation: cmdkSlide 0.2s ease-out;
+  }
+  @keyframes cmdkFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes cmdkSlide {
+    from { opacity: 0; transform: translateY(-8px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .cmdk-input-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cmdk-prompt { color: var(--cyan); font-size: 14px; font-weight: 700; }
+  #cmdkInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+  #cmdkInput::placeholder { color: var(--ink-faint); font-weight: 400; }
+  .cmdk-esc {
+    font-size: 9.5px;
+    color: var(--ink-faint);
+    border: 1px solid var(--line-bright);
+    padding: 3px 7px;
+    letter-spacing: 1px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .cmdk-list {
+    max-height: 52vh;
+    overflow-y: auto;
+    padding: 6px 0;
+  }
+  .cmdk-group {
+    font-size: 9.5px;
+    color: var(--ink-faint);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 12px 20px 6px;
+    font-weight: 500;
+  }
+  .cmdk-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    cursor: pointer;
+    gap: 14px;
+    font-size: 13px;
+    transition: background 0.08s;
+    border-left: 2px solid transparent;
+  }
+  .cmdk-item[aria-selected="true"] {
+    background: var(--bg-3);
+    border-left-color: var(--cyan);
+  }
+  .cmdk-item-icon {
+    color: var(--cyan-dim);
+    width: 14px;
+    text-align: center;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .cmdk-item-main {
+    flex: 1;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .cmdk-item-hint {
+    color: var(--ink-faint);
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+  .cmdk-empty {
+    padding: 28px 20px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 12px;
+  }
+  .cmdk-foot {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    border-top: 1px solid var(--line);
+    font-size: 9.5px;
+    color: var(--ink-faint);
+    letter-spacing: 1px;
+    font-weight: 500;
+    flex-wrap: wrap;
+  }
+  .cmdk-foot kbd {
+    font-family: var(--mono);
+    color: var(--ink-dim);
+    padding: 1px 5px;
+    border: 1px solid var(--line-bright);
+    margin-right: 4px;
+    font-size: 9px;
+    font-weight: 500;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-2);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    padding: 10px 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 1px;
+    z-index: 2000;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    animation: toastIn 0.2s ease-out;
+  }
+  @keyframes toastIn {
+    from { opacity: 0; transform: translate(-50%, 8px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
+
+  @media (max-width: 900px) {
+    .rr-hero { grid-template-columns: 1fr; gap: 24px; }
+    .rr-score { text-align: left; min-width: unset; }
+    .rr-field {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 12px 0;
+    }
+    .rr-field-sub { text-align: left; }
+    .cmdk-modal { padding-top: 8vh; }
+    .cmdk-panel { margin: 0 12px; }
+    .cmdk-trigger-label { display: none; }
+    .cmdk-item-hint { display: none; }
+  }
 </style>
-
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">SYLEE.SEC</div>
-  <ul class="nav-links">
-    <li><a href="#work" data-num="01">Work</a></li>
-    <li><a href="#journey" data-num="02">Journey</a></li>
-    <li><a href="#skills" data-num="03">Stack</a></li>
-    <li><a href="#contact" data-num="04">Contact</a></li>
-  </ul>
   <div class="nav-actions">
+    <button class="icon-btn cmdk-trigger" id="cmdkTrigger" aria-label="Open command palette">
+      <span class="cmdk-kbd">⌘K</span>
+      <span class="cmdk-trigger-label">Search</span>
+    </button>
     <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
       <span class="theme-icon" id="themeIcon">☾</span>
       <span id="themeLabel">DARK</span>
@@ -887,519 +1428,993 @@ footer { flex-direction: column; gap: 12px; }
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div>
-      <div class="hero-terminal">
-        <span class="prompt">$</span> whoami<br>
-        <span class="typing" id="heroType">digital_forensics_investigator</span>
-      </div>
-      <h1>
-        <span class="name" data-en="Seoyoung Lee" data-ko="이서영">Seoyoung Lee</span>
-        Building <span class="accent">trust</span><br>
-        through <span class="accent">data</span>.
-      </h1>
-      <p class="hero-tagline" data-en="Security &amp; audit specialist with <span class='hl'>5+ years</span> across fintech, law, and finance. Bridging <span class='hl'>technical</span>, <span class='hl'>regulatory</span>, and <span class='hl'>business</span> perspectives to build security systems that actually work in production." data-ko="핀테크, 법무, 금융 환경에서 <span class='hl'>5년 이상</span>의 보안·감사 경력. 기술, 규제, 비즈니스를 잇는 시각으로 실제 운영 환경에서 작동하는 보안 시스템을 만듭니다.">
-        Security &amp; audit specialist with <span class="hl">5+ years</span> across fintech, law, and finance. Bridging <span class="hl">technical</span>, <span class="hl">regulatory</span>, and <span class="hl">business</span> perspectives to build security systems that actually work in production.
-      </p>
-      <div class="hero-tags">
-        <span class="tag">AML</span>
-        <span class="tag">Privacy</span>
-        <span class="tag">Blockchain Forensics</span>
-        <span class="tag">AI Security</span>
-        <span class="tag">Internal Audit</span>
-        <span class="tag">Continuous Monitoring</span>
-      </div>
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-primary">View Work <span>→</span></a>
-        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-      </div>
-    </div>
-
-```
-<div class="hero-status">
-  <div class="status-header">
-    <span class="status-label"><span class="status-dot"></span>System Status</span>
-    <span class="status-label">v4.7</span>
-  </div>
-  <div class="status-row">
-    <span class="key">location</span>
-    <span class="val">Seoul, KR</span>
-  </div>
-  <div class="status-row">
-    <span class="key">current</span>
-    <span class="val accent">Toss Bank · Manager</span>
-  </div>
-  <div class="status-row">
-    <span class="key">domain</span>
-    <span class="val">IT Audit &amp; AML</span>
-  </div>
-  <div class="status-row">
-    <span class="key">certs</span>
-    <span class="val">CPPG · CISC · CRC · CKC · AMLS</span>
-  </div>
-  <div class="status-row">
-    <span class="key">education</span>
-    <span class="val">M.S. Digital Forensics</span>
-  </div>
-  <div class="status-row">
-    <span class="key">langs</span>
-    <span class="val">KR (native) · EN (pro)</span>
-  </div>
-  <div class="status-row">
-    <span class="key">seeking</span>
-    <span class="val accent">InfoSec @ LINE Pay</span>
-  </div>
+<div class="tab-bar" role="tablist">
+  <button class="tab-btn" role="tab" aria-selected="true" data-tab="overview"
+          data-en="Overview" data-ko="Overview"><span class="num">01</span>Overview</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="projects"
+          data-en="Projects" data-ko="Projects"><span class="num">02</span>Projects</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="studies"
+          data-en="Studies" data-ko="Studies"><span class="num">03</span>Studies</button>
 </div>
-```
 
-  </div>
-</section>
+<!-- ───── OVERVIEW ───── -->
+<div class="tab-panel" id="panel-overview" role="tabpanel">
 
-<!-- ============ METRICS ============ -->
-
-<section>
-  <div class="section-label reveal">Impact · Numbers</div>
-  <h2 class="section-title reveal">Outcomes <span class="italic">that moved the needle</span></h2>
-  <div class="metrics reveal" id="metrics">
-    <div class="metric">
-      <div class="metric-value" data-count="5">0</div>
-      <div class="metric-label">Years in Security</div>
-      <div class="metric-sub">Fintech · Law · Finance</div>
-    </div>
-    <div class="metric">
-      <div class="metric-value"><span data-count="1">0</span>wk→30m</div>
-      <div class="metric-label">Audit Automation</div>
-      <div class="metric-sub">AI agent deployed @ Toss Bank</div>
-    </div>
-    <div class="metric">
-      <div class="metric-value" data-count="5">0</div>
-      <div class="metric-label">Active Certifications</div>
-      <div class="metric-sub">CPPG · CISC · CRC · CKC · AMLS</div>
-    </div>
-    <div class="metric">
-      <div class="metric-value" data-count="15">0</div>
-      <div class="metric-label">Scenarios Shipped</div>
-      <div class="metric-sub">AML · Privacy · FDS in production</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROJECTS ============ -->
-
-<section id="work">
-  <div class="section-label reveal">Selected Work · 2019 – 2026</div>
-  <h2 class="section-title reveal">Projects that <span class="italic">shipped</span></h2>
-  <p class="section-desc reveal">
-    Six deep dives across continuous monitoring, audit automation, fraud detection,
-    blockchain forensics, and digital evidence analysis. Each project moved from
-    hypothesis to production with measurable risk reduction.
-  </p>
-
-  <div class="projects-grid">
-    <!-- Project 01 -->
-    <article class="project reveal">
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
       <div>
-        <div class="project-header">
-          <span class="project-id">/ 01</span>
-          <span class="project-status deployed">● Deployed</span>
+        <div class="hero-terminal">
+          <span class="prompt">$</span> whoami<br>
+          <span class="typing" id="heroType">blockchain_tracker</span>
         </div>
-        <div class="project-company">Toss Bank · 2025–Present</div>
-        <h3 class="project-title">AML &amp; Privacy <span class="italic">Continuous Monitoring</span> Scenarios</h3>
-        <div class="project-tags">
-          <span class="project-tag">SQL</span>
-          <span class="project-tag">AML</span>
-          <span class="project-tag">Risk Detection</span>
-          <span class="project-tag">Data Lineage</span>
+        <h1>
+          <span class="name" data-en="Seoyoung Lee" data-ko="이서영">Seoyoung Lee</span>
+          Building <span class="accent">trust</span><br>
+          through <span class="accent">data</span>.
+        </h1>
+        <p class="hero-tagline"
+           data-en="Security &amp; audit specialist with &lt;span class='hl'&gt;5+ years&lt;/span&gt; across fintech, law, and finance. Bridging &lt;span class='hl'&gt;technical&lt;/span&gt;, &lt;span class='hl'&gt;regulatory&lt;/span&gt;, and &lt;span class='hl'&gt;business&lt;/span&gt; perspectives to build security systems that actually work in production."
+           data-ko="핀테크·법무·금융 도메인에서 &lt;span class='hl'&gt;5년+&lt;/span&gt;의 보안·감사 경력. &lt;span class='hl'&gt;기술&lt;/span&gt;·&lt;span class='hl'&gt;규제&lt;/span&gt;·&lt;span class='hl'&gt;비즈니스&lt;/span&gt; 세 관점을 연결해, 실제 운영 환경에서 작동하는 보안 시스템을 설계합니다.">
+          Security &amp; audit specialist with <span class="hl">5+ years</span> across fintech, law, and finance. Bridging <span class="hl">technical</span>, <span class="hl">regulatory</span>, and <span class="hl">business</span> perspectives to build security systems that actually work in production.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">AML</span>
+          <span class="tag">Privacy</span>
+          <span class="tag">Blockchain Forensics</span>
+          <span class="tag">AI Security</span>
+          <span class="tag">Internal Audit</span>
+          <span class="tag">Continuous Monitoring</span>
         </div>
-        <p class="project-desc">
-          Redesigned rule-based monitoring into data-driven scenarios covering authority
-          mismatch, anomalous transfer patterns, and channel-specific transaction anomalies.
-          Coordinated across engineering, data, and compliance to ship risk-prioritized rollout.
+        <div class="hero-cta">
+          <button class="btn btn-primary" data-goto-tab="projects">View Work <span>→</span></button>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-status">
+        <div class="status-header">
+          <span class="status-label"><span class="status-dot"></span>System Status</span>
+          <span class="status-label" id="buildStamp">— · —</span>
+        </div>
+        <div class="status-row">
+          <span class="key">location</span>
+          <span class="val">Seoul, KR (GMT+9)</span>
+        </div>
+        <div class="status-row">
+          <span class="key">current</span>
+          <span class="val accent">Toss Bank · Manager</span>
+        </div>
+        <div class="status-row">
+          <span class="key">domain</span>
+          <span class="val">IT Audit &amp; AML</span>
+        </div>
+        <div class="status-row">
+          <span class="key">certs</span>
+          <span class="val">CPPG · CISC · CRC · CKC · AMLS</span>
+        </div>
+        <div class="status-row">
+          <span class="key">education</span>
+          <span class="val">M.S. Digital Forensics</span>
+        </div>
+        <div class="status-row">
+          <span class="key">langs</span>
+          <span class="val">KR (native) · EN (pro)</span>
+        </div>
+        <div class="status-row">
+          <span class="key">seeking</span>
+          <span class="val accent">InfoSec @ LINE Pay</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-label reveal">Profile · Assessment</div>
+    <h2 class="section-title reveal">Professional <span class="italic">risk report</span></h2>
+    <p class="section-desc reveal">
+      A glance at who I am — scored the way I score the people I watch.
+      No open findings.
+    </p>
+
+    <div class="risk-report reveal" id="riskReport">
+      <div class="rr-head">
+        <div class="rr-head-left">
+          <span class="rr-head-label">Profile Assessment</span>
+          <span class="rr-head-id" id="rrAssessmentId">SYL-2026-·</span>
+        </div>
+        <div class="rr-classification">Public · Open</div>
+      </div>
+
+      <div class="rr-hero">
+        <div class="rr-hero-subject">
+          <div class="rr-mini-label">Subject</div>
+          <div class="rr-hero-name">Seoyoung Lee</div>
+          <div class="rr-hero-sub">Security &amp; Audit · Seoul, KR</div>
+        </div>
+        <div class="rr-score">
+          <div class="rr-mini-label">Risk Score</div>
+          <div class="rr-score-val" id="rrScoreVal">0.02</div>
+          <div class="rr-score-bar"><div class="rr-score-fill"></div></div>
+          <div class="rr-score-tag">Low · Cleared</div>
+        </div>
+      </div>
+
+      <div class="rr-fields">
+        <div class="rr-field">
+          <span class="rr-field-key">Status</span>
+          <span class="rr-field-val">Verified · Active</span>
+          <span class="rr-field-sub">Background checked</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Tenure</span>
+          <span class="rr-field-val">5.1 years · 6 entities</span>
+          <span class="rr-field-sub">Fintech · Law · Finance</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Credentials</span>
+          <span class="rr-field-val">5 active · 0 expired · 0 revoked</span>
+          <span class="rr-field-sub">CPPG · CISC · CRC · CKC · AMLS</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Shipped</span>
+          <span class="rr-field-val">15 scenarios · 100% in prod</span>
+          <span class="rr-field-sub">AML · Privacy · FDS</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Automation Δ</span>
+          <span class="rr-field-val">1 week → 30 minutes</span>
+          <span class="rr-field-sub">AI agent @ Toss Bank · 2025</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Audit Findings</span>
+          <span class="rr-field-val">0 open · 0 historical</span>
+          <span class="rr-field-sub">—</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Last Incident</span>
+          <span class="rr-field-val">None on record</span>
+          <span class="rr-field-sub">—</span>
+        </div>
+        <div class="rr-field">
+          <span class="rr-field-key">Next Review</span>
+          <span class="rr-field-val">On request</span>
+          <span class="rr-field-sub">sylee2401@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="rr-foot">
+        <span class="rr-foot-key">sha256</span>
+        <span class="rr-foot-val" id="rrHash">computing…</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-label reveal">Career · Trajectory</div>
+    <h2 class="section-title reveal">The <span class="italic">journey</span></h2>
+    <p class="section-desc reveal">
+      From IT support at Korea's central bank to blockchain forensics at LINE to AI-powered
+      audit at Toss Bank — each stop deepened a different layer of the security stack.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-entry reveal">
+        <div class="timeline-date">2025 — PRESENT</div>
+        <div class="timeline-company">Toss Bank Corp.</div>
+        <div class="timeline-role">Manager · Audit Team</div>
+        <p class="timeline-desc">
+          IT audit planning, continuous monitoring scenario design for AML and privacy,
+          financial incident investigation, and regulatory response. Developed and deployed
+          AI agent-based audit automation cutting prep time from one week to 30 minutes.
         </p>
       </div>
-      <div class="project-impact">
-        <div class="impact-item">
-          <span class="val">3+</span>
-          <span class="lbl">Scenarios in prod</span>
+
+      <div class="timeline-entry reveal">
+        <div class="timeline-date">2024 — 2025</div>
+        <div class="timeline-company">Daeryun Law Firm</div>
+        <div class="timeline-role">Senior Digital Forensics Specialist</div>
+        <p class="timeline-desc">
+          Forensic analysis on mobile devices, PCs, CCTV, and voice recordings.
+          Built Python-based voice tampering detection system. Served as forensic consultant
+          for legal disputes and regulatory investigations.
+        </p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="timeline-date">2023 — 2024</div>
+        <div class="timeline-company">Coupang Corp.</div>
+        <div class="timeline-role">Privacy Protection Associate</div>
+        <p class="timeline-desc">
+          Led Privacy Management System construction covering full data lifecycle.
+          Conducted internal audits for personal information protection law compliance
+          and designed monitoring rules for uncovered risk areas.
+        </p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="timeline-date">2021 — 2023</div>
+        <div class="timeline-company">LINE PLUS &amp; LINE NEXT</div>
+        <div class="timeline-role">Security &amp; Anti-Fraud Associate</div>
+        <p class="timeline-desc">
+          Designed NFT fraud detection system using machine learning. Daily operation of
+          Chainalysis Reactor and KYT for blockchain transaction monitoring. Managed
+          black/white-list based on on-chain pattern analysis and optimized FDS rules.
+        </p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="timeline-date">2020 — 2024</div>
+        <div class="timeline-company">Redbrick · Freelance</div>
+        <div class="timeline-role">IT Instructor</div>
+        <p class="timeline-desc">
+          Lead instructor at SSAFY (Samsung Software Academy) for JavaScript application
+          development and Python data analysis. Designed IT education curriculum and
+          training materials for next-generation developers.
+        </p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="timeline-date">2019</div>
+        <div class="timeline-company">Bank of Korea</div>
+        <div class="timeline-role">IT Support Associate</div>
+        <p class="timeline-desc">
+          Maintained internal IT management systems at Korea's central bank.
+          Performed data analysis for system performance optimization — the first
+          step into financial technology that set the trajectory for everything since.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="stack">
+    <div class="section-label reveal">Capability · Matrix</div>
+    <h2 class="section-title reveal">Technical &amp; <span class="italic">regulatory stack</span></h2>
+    <p class="section-desc reveal">
+      Deep enough to ship production code. Broad enough to bridge engineering,
+      compliance, and business conversations.
+    </p>
+
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-label">// Engineering</div>
+        <ul class="skill-list">
+          <li class="skill-chip featured">Python</li>
+          <li class="skill-chip featured">SQL</li>
+          <li class="skill-chip">JavaScript</li>
+          <li class="skill-chip">Impala / Hive</li>
+          <li class="skill-chip">Machine Learning</li>
+          <li class="skill-chip">Web Scraping</li>
+          <li class="skill-chip">LLM / AI Agent</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-label">// Security &amp; Forensics</div>
+        <ul class="skill-list">
+          <li class="skill-chip featured">Chainalysis Reactor</li>
+          <li class="skill-chip featured">Chainalysis KYT</li>
+          <li class="skill-chip">Digital Forensics</li>
+          <li class="skill-chip">FDS Engineering</li>
+          <li class="skill-chip">Blockchain Analysis</li>
+          <li class="skill-chip">Audio Forensics</li>
+          <li class="skill-chip">Incident Response</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-label">// Compliance &amp; Audit</div>
+        <ul class="skill-list">
+          <li class="skill-chip featured">AML / KYT / KYC</li>
+          <li class="skill-chip featured">Privacy Law (KR)</li>
+          <li class="skill-chip">ISMS-P</li>
+          <li class="skill-chip">Internal Audit</li>
+          <li class="skill-chip">Risk Assessment</li>
+          <li class="skill-chip">Regulatory Response</li>
+          <li class="skill-chip">Travel Rule</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="edu-grid" style="margin-top: 80px;">
+      <div class="edu-block reveal">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="edu-name">M.S. Digital Forensics</div>
+          <div class="edu-meta">Sungkyunkwan University · 2020–2023</div>
+          <div class="edu-note">Thesis: Analysis and tracking of Bitcoin mixing techniques (2022)</div>
+          <div class="edu-note">Research: Stock manipulation detection using data mining (2020)</div>
         </div>
-        <div class="impact-item">
-          <span class="val">5</span>
-          <span class="lbl">Teams aligned</span>
+        <div class="edu-item">
+          <div class="edu-name">B.S. Computer Science</div>
+          <div class="edu-meta">Sookmyung Women's University · 2019</div>
         </div>
       </div>
-    </article>
+
+      <div class="edu-block reveal">
+        <h3>Certifications</h3>
+        <div class="edu-item">
+          <div class="edu-name">Chainalysis Cryptocurrency Investigator</div>
+          <div class="edu-meta">CISC · CRC · CKC (Reactor + KYT certified)</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">CPPG</div>
+          <div class="edu-meta">Certified Privacy Protection General</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-name">AML Specialist Certificate</div>
+          <div class="edu-meta">Anti-Money Laundering Specialist</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-label reveal">Let's · Connect</div>
+    <h2 class="contact-title reveal">Ready to build something <span class="italic">trustworthy</span>.</h2>
+    <a href="mailto:sylee2401@gmail.com" class="contact-email reveal">sylee2401@gmail.com</a>
+    <div class="contact-meta reveal">Seoul, Korea · Available for InfoSec &amp; Audit roles</div>
+  </section>
+
+</div>
+<!-- /overview -->
 
 
-<!-- Project 02 -->
-<article class="project reveal">
-  <div>
-    <div class="project-header">
-      <span class="project-id">/ 02</span>
-      <span class="project-status deployed">● Deployed</span>
-    </div>
-    <div class="project-company">Toss Bank · 2025</div>
-    <h3 class="project-title">AI Agent-Based <span class="italic">Audit Automation</span></h3>
-    <div class="project-tags">
-      <span class="project-tag">LLM</span>
-      <span class="project-tag">Python</span>
-      <span class="project-tag">HITL</span>
-      <span class="project-tag">NIST AI RMF</span>
-    </div>
-    <p class="project-desc">
-      Designed an AI agent that automates AML audit preparation — regulatory mapping,
-      precedent search, and draft report generation — with three hard-coded security
-      layers: prompt validation, human-in-the-loop review, and full audit logging.
+<!-- ───── PROJECTS ───── -->
+<div class="tab-panel" id="panel-projects" role="tabpanel" hidden>
+
+  <section class="block" style="padding-top: 140px;">
+    <div class="section-label reveal">Selected Work · 2019 – 2026</div>
+    <h2 class="section-title reveal">Projects that <span class="italic">shipped</span></h2>
+    <p class="section-desc reveal">
+      Production deployments, research systems, and side builds. Each row carries a story —
+      what it tried to solve, what stack made it, and where it landed.
     </p>
-  </div>
-  <div class="project-impact">
-    <div class="impact-item">
-      <span class="val">1wk → 30m</span>
-      <span class="lbl">Audit prep time</span>
-    </div>
-    <div class="impact-item">
-      <span class="val">3</span>
-      <span class="lbl">Security controls</span>
-    </div>
-  </div>
-</article>
 
-<!-- Project 03 -->
-<article class="project reveal">
-  <div>
-    <div class="project-header">
-      <span class="project-id">/ 03</span>
-      <span class="project-status deployed">● Deployed</span>
+    <div class="subheading">Professional · Deployed</div>
+
+    <div class="projects-grid">
+
+      <article class="project reveal">
+        <div>
+          <div class="project-header">
+            <span class="project-id">/ 01</span>
+            <span class="project-status deployed">● Deployed</span>
+          </div>
+          <div class="project-company">Toss Bank · 2025–Present</div>
+          <h3 class="project-title">AML &amp; Privacy <span class="italic">Continuous Monitoring</span> Scenarios</h3>
+          <div class="project-tags">
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">AML</span>
+            <span class="project-tag">Risk Detection</span>
+            <span class="project-tag">Data Lineage</span>
+          </div>
+          <p class="project-desc">
+            Redesigned rule-based monitoring into data-driven scenarios covering authority
+            mismatch, anomalous transfer patterns, and channel-specific transaction anomalies.
+            Coordinated across engineering, data, and compliance to ship risk-prioritized rollout.
+          </p>
+        </div>
+        <div class="project-impact">
+          <div class="impact-item">
+            <span class="val">3+</span>
+            <span class="lbl">Scenarios in prod</span>
+          </div>
+          <div class="impact-item">
+            <span class="val">5</span>
+            <span class="lbl">Teams aligned</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-header">
+            <span class="project-id">/ 02</span>
+            <span class="project-status deployed">● Deployed</span>
+          </div>
+          <div class="project-company">Toss Bank · 2025</div>
+          <h3 class="project-title">AI Agent-Based <span class="italic">Audit Automation</span></h3>
+          <div class="project-tags">
+            <span class="project-tag">LLM</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">HITL</span>
+            <span class="project-tag">NIST AI RMF</span>
+          </div>
+          <p class="project-desc">
+            Designed an AI agent that automates AML audit preparation — regulatory mapping,
+            precedent search, and draft report generation — with three hard-coded security
+            layers: prompt validation, human-in-the-loop review, and full audit logging.
+          </p>
+        </div>
+        <div class="project-impact">
+          <div class="impact-item">
+            <span class="val">1wk → 30m</span>
+            <span class="lbl">Audit prep time</span>
+          </div>
+          <div class="impact-item">
+            <span class="val">3</span>
+            <span class="lbl">Security controls</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-header">
+            <span class="project-id">/ 03</span>
+            <span class="project-status deployed">● Deployed</span>
+          </div>
+          <div class="project-company">Coupang · 2023</div>
+          <h3 class="project-title">Privacy Management <span class="italic">System Construction</span></h3>
+          <div class="project-tags">
+            <span class="project-tag">PIMS</span>
+            <span class="project-tag">Compliance</span>
+            <span class="project-tag">Governance</span>
+            <span class="project-tag">CPPG</span>
+          </div>
+          <p class="project-desc">
+            Led end-to-end PMS construction covering collection → use → storage → disposal
+            lifecycle. Surfaced uncovered blind spots and converted them into automated
+            monitoring rules, elevating privacy operations from monthly checks to continuous.
+          </p>
+        </div>
+        <div class="project-impact">
+          <div class="impact-item">
+            <span class="val">Lifecycle</span>
+            <span class="lbl">End-to-end coverage</span>
+          </div>
+          <div class="impact-item">
+            <span class="val">Monthly → Live</span>
+            <span class="lbl">Cadence shift</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-header">
+            <span class="project-id">/ 04</span>
+            <span class="project-status deployed">● Deployed</span>
+          </div>
+          <div class="project-company">LINE NEXT · 2022–2023</div>
+          <h3 class="project-title">NFT Fraud Detection <span class="italic">using Machine Learning</span></h3>
+          <div class="project-tags">
+            <span class="project-tag">Machine Learning</span>
+            <span class="project-tag">Chainalysis</span>
+            <span class="project-tag">KYT</span>
+            <span class="project-tag">FDS</span>
+          </div>
+          <p class="project-desc">
+            Designed and operated an ML-based fraud detection system for NFT transactions
+            while running Chainalysis Reactor and KYT daily. Managed black/white-list
+            governance based on on-chain transaction pattern analysis.
+          </p>
+        </div>
+        <div class="project-impact">
+          <div class="impact-item">
+            <span class="val">Real-time</span>
+            <span class="lbl">On-chain monitoring</span>
+          </div>
+          <div class="impact-item">
+            <span class="val">ML + Rules</span>
+            <span class="lbl">Hybrid detection</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-header">
+            <span class="project-id">/ 05</span>
+            <span class="project-status deployed">● Deployed</span>
+          </div>
+          <div class="project-company">Daeryun Law Firm · 2024–2025</div>
+          <h3 class="project-title">Voice Tampering <span class="italic">Detection System</span></h3>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Audio Forensics</span>
+            <span class="project-tag">Automation</span>
+          </div>
+          <p class="project-desc">
+            Built an automated system in Python that analyzes voice recordings and
+            detects tampering or editing artifacts for legal evidence verification.
+            Integrated into firm's forensic workflow to accelerate case analysis.
+          </p>
+        </div>
+        <div class="project-impact">
+          <div class="impact-item">
+            <span class="val">Python</span>
+            <span class="lbl">From scratch</span>
+          </div>
+          <div class="impact-item">
+            <span class="val">Legal-grade</span>
+            <span class="lbl">Evidence integrity</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div>
+          <div class="project-header">
+            <span class="project-id">/ 06</span>
+            <span class="project-status deployed">● Deployed</span>
+          </div>
+          <div class="project-company">Toss Bank · 2025</div>
+          <h3 class="project-title">Regulatory Agency <span class="italic">Web Crawler Suite</span></h3>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Web Scraping</span>
+            <span class="project-tag">SSL/TLS</span>
+            <span class="project-tag">AJAX</span>
+          </div>
+          <p class="project-desc">
+            Engineered crawlers for five Korean financial regulators (FSS, FSC, PIPC,
+            KOFIU, KFB) under strict corporate security constraints. Solved SSL/TLS
+            handshake issues and dynamic AJAX rendering to surface regulatory updates in real time.
+          </p>
+        </div>
+        <div class="project-impact">
+          <div class="impact-item">
+            <span class="val">5</span>
+            <span class="lbl">Agencies covered</span>
+          </div>
+          <div class="impact-item">
+            <span class="val">Real-time</span>
+            <span class="lbl">Regulatory intel</span>
+          </div>
+        </div>
+      </article>
+
     </div>
-    <div class="project-company">Coupang · 2023</div>
-    <h3 class="project-title">Privacy Management <span class="italic">System Construction</span></h3>
-    <div class="project-tags">
-      <span class="project-tag">PIMS</span>
-      <span class="project-tag">Compliance</span>
-      <span class="project-tag">Governance</span>
-      <span class="project-tag">CPPG</span>
+
+
+    <div class="subheading">Graduate Research · Blockchain Forensics</div>
+
+    <div class="side-list">
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Bitcoin Transaction Tracing System</span>
+          <span class="side-row-year">2021</span>
+        </div>
+        <div class="side-row-ctx">Sungkyunkwan U. · M.S. Research</div>
+        <p class="side-row-desc">
+          Built a BTC address/transaction tracing pipeline. Clustering heuristics
+          (common-input, change-address) and early mixer-detection rules became the
+          foundation that the thesis work was layered on top of.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Bitcoin</span>
+          <span class="side-row-tag">Clustering</span>
+          <span class="side-row-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Ethereum Transaction Tracing System</span>
+          <span class="side-row-year">2021–2022</span>
+        </div>
+        <div class="side-row-ctx">Sungkyunkwan U. · M.S. Research</div>
+        <p class="side-row-desc">
+          Ethereum-side counterpart — ERC-20 / ERC-721 flows pulled via Web3, graph-based
+          visualization of counterparty relationships, and anomaly surfacing on unusual
+          contract-interaction patterns.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Ethereum</span>
+          <span class="side-row-tag">Web3.py</span>
+          <span class="side-row-tag">Graph Analysis</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Bitcoin Address OSINT &amp; Transaction Correlation</span>
+          <span class="side-row-year">2022</span>
+        </div>
+        <div class="side-row-ctx">Sungkyunkwan U. · M.S. Research</div>
+        <p class="side-row-desc">
+          Enriched on-chain addresses with OSINT signals (forum mentions, leak datasets,
+          exchange labels) to link seemingly unrelated transactions into cohesive actor
+          clusters. Fed directly into the thesis mixing-analysis workflow.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">OSINT</span>
+          <span class="side-row-tag">Correlation</span>
+          <span class="side-row-tag">Attribution</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Social Media Threat Actor Profiling</span>
+          <span class="side-row-year">2022</span>
+        </div>
+        <div class="side-row-ctx">Research · Cross-Platform OSINT</div>
+        <p class="side-row-desc">
+          Pulled public posts across Twitter, Telegram, and Discord into a unified pipeline,
+          extracted behavioral signals (language, timing, topic), and produced threat-actor
+          profile scores — useful primitive for both AML and CTI workflows.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">OSINT</span>
+          <span class="side-row-tag">NLP</span>
+          <span class="side-row-tag">Threat Intel</span>
+        </div>
+      </div>
+
     </div>
-    <p class="project-desc">
-      Led end-to-end PMS construction covering collection → use → storage → disposal
-      lifecycle. Surfaced uncovered blind spots and converted them into automated
-      monitoring rules, elevating privacy operations from monthly checks to continuous.
+
+
+    <div class="subheading">Applied Security · Research &amp; Tooling</div>
+
+    <div class="side-list">
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">APT Campaign Analyzer</span>
+          <span class="side-row-year">2023</span>
+        </div>
+        <div class="side-row-ctx">Personal Research · 6 weeks</div>
+        <p class="side-row-desc">
+          End-to-end pipeline that scrapes TTPs off each APT group's MITRE page,
+          builds an ATT&amp;CK Navigator layer JSON, draws the campaign timeline, and
+          auto-renders a Markdown + PDF intel report via Jinja2 and Pandoc.
+          Took APT38 through the full loop as the pilot case.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">MITRE ATT&amp;CK</span>
+          <span class="side-row-tag">BeautifulSoup</span>
+          <span class="side-row-tag">Jinja2</span>
+          <span class="side-row-tag">Pandoc</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Ransomware Detection System</span>
+          <span class="side-row-year">Research</span>
+        </div>
+        <div class="side-row-ctx">Behavior-Based Detection</div>
+        <p class="side-row-desc">
+          File-system behavior monitoring with entropy-based heuristics to catch encryption
+          activity early. Prototype-stage system exploring the tradeoff between latency
+          and false positive rate in host-level detection.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Malware</span>
+          <span class="side-row-tag">Behavior Analysis</span>
+          <span class="side-row-tag">Entropy</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">FDS Rule Engineering &amp; Risk Visualization</span>
+          <span class="side-row-year">2022–2023</span>
+        </div>
+        <div class="side-row-ctx">Public-safe recreation of LINE FDS work</div>
+        <p class="side-row-desc">
+          Reconstructed the FDS work I did at LINE into a public-shareable project.
+          Virtual-asset transactions in, three behavior rules on top (repeated
+          large-withdrawals, new-wallet burst, outlier frequency), a Sankey view of
+          fund flows, and a Streamlit dashboard for hit-rate and high-risk share.
+          Tried Isolation Forest / LOF too — rule-based still won on this data.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Pandas</span>
+          <span class="side-row-tag">Plotly Sankey</span>
+          <span class="side-row-tag">Streamlit</span>
+          <span class="side-row-tag">Rule Engine</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Privacy Access Log Anomaly Detection</span>
+          <span class="side-row-year">2023</span>
+        </div>
+        <div class="side-row-ctx">Coupang · Privacy Ops</div>
+        <p class="side-row-desc">
+          Converted raw privacy access logs (who viewed which customer record, when, why)
+          into anomaly-detection rules. Ran in the same cadence shift from monthly manual
+          checks to continuous monitoring.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Privacy</span>
+          <span class="side-row-tag">Anomaly Detection</span>
+          <span class="side-row-tag">SQL</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="subheading">Side &amp; Internal Tools</div>
+
+    <div class="side-list">
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Discord Crawler + Sentiment Pipeline</span>
+          <span class="side-row-year">2023</span>
+        </div>
+        <div class="side-row-ctx">Side tool · Built to assist LINE monitoring</div>
+        <p class="side-row-desc">
+          Selenium-based crawler that walks Discord's SPA (2FA handling, lazy-load
+          scroll, class-name drift) to pull keyword-matched messages out of crypto
+          channels, then runs them through a Hugging Face DistilBERT sentiment pass
+          with matplotlib pies on top. Built on the side to make anomaly triage at
+          LINE a little less manual.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Selenium</span>
+          <span class="side-row-tag">Hugging Face</span>
+          <span class="side-row-tag">DistilBERT</span>
+          <span class="side-row-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Stock Manipulation Detection — Data Mining</span>
+          <span class="side-row-year">2020</span>
+        </div>
+        <div class="side-row-ctx">Undergraduate Research</div>
+        <p class="side-row-desc">
+          Earliest "this is what I actually want to do" project. Applied data-mining
+          techniques to equity tick data to flag patterns consistent with manipulation,
+          and it's the seed from which everything AML-shaped grew later.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Data Mining</span>
+          <span class="side-row-tag">Finance</span>
+          <span class="side-row-tag">Undergrad</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Undergraduate Graduation Project</span>
+          <span class="side-row-year">2019</span>
+        </div>
+        <div class="side-row-ctx">Sookmyung W.U. · B.S. CS</div>
+        <p class="side-row-desc">
+          Capstone project from undergrad — solid-state foundation before the graduate
+          work took a sharper forensic/finance turn.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Capstone</span>
+          <span class="side-row-tag">Undergrad</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <span class="side-row-title">Operational Report Automation</span>
+          <span class="side-row-year">Internal</span>
+        </div>
+        <div class="side-row-ctx">Internal Tooling</div>
+        <p class="side-row-desc">
+          Small Python tool that turned recurring manual reporting tasks into a one-command
+          job. Nothing fancy — but the kind of thing that buys back hours every week
+          once it's running.
+        </p>
+        <div class="side-row-tags">
+          <span class="side-row-tag">Python</span>
+          <span class="side-row-tag">Automation</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+<!-- /projects -->
+
+
+<!-- ───── STUDIES ───── -->
+<div class="tab-panel" id="panel-studies" role="tabpanel" hidden>
+
+  <section class="block" style="padding-top: 140px;">
+    <div class="section-label reveal">Academic · Library</div>
+    <h2 class="section-title reveal">Theses, research, <span class="italic">and what I've been reading</span></h2>
+    <p class="section-desc reveal">
+      The source material underneath the work. Original research on blockchain privacy
+      and financial crime, plus a running log of papers I keep coming back to.
     </p>
-  </div>
-  <div class="project-impact">
-    <div class="impact-item">
-      <span class="val">Lifecycle</span>
-      <span class="lbl">End-to-end coverage</span>
-    </div>
-    <div class="impact-item">
-      <span class="val">Monthly → Live</span>
-      <span class="lbl">Cadence shift</span>
-    </div>
-  </div>
-</article>
 
-<!-- Project 04 -->
-<article class="project reveal">
-  <div>
-    <div class="project-header">
-      <span class="project-id">/ 04</span>
-      <span class="project-status deployed">● Deployed</span>
-    </div>
-    <div class="project-company">LINE NEXT · 2022–2023</div>
-    <h3 class="project-title">NFT Fraud Detection <span class="italic">using Machine Learning</span></h3>
-    <div class="project-tags">
-      <span class="project-tag">Machine Learning</span>
-      <span class="project-tag">Chainalysis</span>
-      <span class="project-tag">KYT</span>
-      <span class="project-tag">FDS</span>
-    </div>
-    <p class="project-desc">
-      Designed and operated an ML-based fraud detection system for NFT transactions
-      while running Chainalysis Reactor and KYT daily. Managed black/white-list
-      governance based on on-chain transaction pattern analysis.
-    </p>
-  </div>
-  <div class="project-impact">
-    <div class="impact-item">
-      <span class="val">Real-time</span>
-      <span class="lbl">On-chain monitoring</span>
-    </div>
-    <div class="impact-item">
-      <span class="val">ML + Rules</span>
-      <span class="lbl">Hybrid detection</span>
-    </div>
-  </div>
-</article>
+    <div class="subheading">Original Research</div>
 
-<!-- Project 05 -->
-<article class="project reveal">
-  <div>
-    <div class="project-header">
-      <span class="project-id">/ 05</span>
-      <span class="project-status deployed">● Deployed</span>
-    </div>
-    <div class="project-company">Daeryun Law Firm · 2024–2025</div>
-    <h3 class="project-title">Voice Tampering <span class="italic">Detection System</span></h3>
-    <div class="project-tags">
-      <span class="project-tag">Python</span>
-      <span class="project-tag">Audio Forensics</span>
-      <span class="project-tag">Automation</span>
-    </div>
-    <p class="project-desc">
-      Built an automated system in Python that analyzes voice recordings and
-      detects tampering or editing artifacts for legal evidence verification.
-      Integrated into firm's forensic workflow to accelerate case analysis.
-    </p>
-  </div>
-  <div class="project-impact">
-    <div class="impact-item">
-      <span class="val">Python</span>
-      <span class="lbl">From scratch</span>
-    </div>
-    <div class="impact-item">
-      <span class="val">Legal-grade</span>
-      <span class="lbl">Evidence integrity</span>
-    </div>
-  </div>
-</article>
-
-<!-- Project 06 -->
-<article class="project reveal">
-  <div>
-    <div class="project-header">
-      <span class="project-id">/ 06</span>
-      <span class="project-status deployed">● Deployed</span>
-    </div>
-    <div class="project-company">Toss Bank · 2025</div>
-    <h3 class="project-title">Regulatory Agency <span class="italic">Web Crawler Suite</span></h3>
-    <div class="project-tags">
-      <span class="project-tag">Python</span>
-      <span class="project-tag">Web Scraping</span>
-      <span class="project-tag">SSL/TLS</span>
-      <span class="project-tag">AJAX</span>
-    </div>
-    <p class="project-desc">
-      Engineered crawlers for five Korean financial regulators (FSS, FSC, PIPC,
-      KOFIU, KFB) under strict corporate security constraints. Solved SSL/TLS
-      handshake issues and dynamic AJAX rendering to surface regulatory updates in real time.
-    </p>
-  </div>
-  <div class="project-impact">
-    <div class="impact-item">
-      <span class="val">5</span>
-      <span class="lbl">Agencies covered</span>
-    </div>
-    <div class="impact-item">
-      <span class="val">Real-time</span>
-      <span class="lbl">Regulatory intel</span>
-    </div>
-  </div>
-</article>
-
-
-  </div>
-</section>
-
-<!-- ============ JOURNEY ============ -->
-
-<section id="journey">
-  <div class="section-label reveal">Career · Trajectory</div>
-  <h2 class="section-title reveal">The <span class="italic">journey</span></h2>
-  <p class="section-desc reveal">
-    From IT support at Korea's central bank to blockchain forensics at LINE to AI-powered
-    audit at Toss Bank — each stop deepened a different layer of the security stack.
-  </p>
-
-  <div class="timeline">
-    <div class="timeline-entry reveal">
-      <div class="timeline-date">2025 — PRESENT</div>
-      <div class="timeline-company">Toss Bank Corp.</div>
-      <div class="timeline-role">Manager · Audit Team</div>
-      <p class="timeline-desc">
-        IT audit planning, continuous monitoring scenario design for AML and privacy,
-        financial incident investigation, and regulatory response. Developed and deployed
-        AI agent-based audit automation cutting prep time from one week to 30 minutes.
+    <div class="research-card reveal">
+      <div class="research-kind">M.S. Thesis · 2022</div>
+      <h3 class="research-title">Analysis and Tracking of Bitcoin Mixing Techniques</h3>
+      <div class="research-meta">Sungkyunkwan University · Digital Forensics</div>
+      <p class="research-desc">
+        Classified Bitcoin mixing techniques (CoinJoin variants, custodial mixers,
+        chain-hopping patterns) and evaluated tracking heuristics against each class.
+        Built the experimental pipeline on top of the BTC/ETH tracing systems from the
+        research projects, and the conclusions shaped how I later approached on-chain
+        AML at LINE NEXT and Toss Bank.
       </p>
     </div>
 
-<div class="timeline-entry reveal">
-  <div class="timeline-date">2024 — 2025</div>
-  <div class="timeline-company">Daeryun Law Firm</div>
-  <div class="timeline-role">Senior Digital Forensics Specialist</div>
-  <p class="timeline-desc">
-    Forensic analysis on mobile devices, PCs, CCTV, and voice recordings.
-    Built Python-based voice tampering detection system. Served as forensic consultant
-    for legal disputes and regulatory investigations.
-  </p>
-</div>
-
-<div class="timeline-entry reveal">
-  <div class="timeline-date">2023 - 2024</div>
-  <div class="timeline-company">Coupang Corp.</div>
-  <div class="timeline-role">Privacy Protection Associate</div>
-  <p class="timeline-desc">
-    Led Privacy Management System construction covering full data lifecycle.
-    Conducted internal audits for personal information protection law compliance
-    and designed monitoring rules for uncovered risk areas.
-  </p>
-</div>
-
-<div class="timeline-entry reveal">
-  <div class="timeline-date">2021 — 2023</div>
-  <div class="timeline-company">LINE PLUS &amp; LINE NEXT</div>
-  <div class="timeline-role">Security &amp; Anti-Fraud Associate</div>
-  <p class="timeline-desc">
-    Designed NFT fraud detection system using machine learning. Daily operation of
-    Chainalysis Reactor and KYT for blockchain transaction monitoring. Managed
-    black/white-list based on on-chain pattern analysis and optimized FDS rules.
-  </p>
-</div>
-
-<div class="timeline-entry reveal">
-  <div class="timeline-date">2020 — 2024</div>
-  <div class="timeline-company">Redbrick · Freelance</div>
-  <div class="timeline-role">IT Instructor</div>
-  <p class="timeline-desc">
-    Lead instructor at SSAFY (Samsung Software Academy) for JavaScript application
-    development and Python data analysis. Designed IT education curriculum and
-    training materials for next-generation developers.
-  </p>
-</div>
-
-<div class="timeline-entry reveal">
-  <div class="timeline-date">2019</div>
-  <div class="timeline-company">Bank of Korea</div>
-  <div class="timeline-role">IT Support Associate</div>
-  <p class="timeline-desc">
-    Maintained internal IT management systems at Korea's central bank.
-    Performed data analysis for system performance optimization — the first
-    step into financial technology that set the trajectory for everything since.
-  </p>
-</div>
-
-  </div>
-</section>
-
-<!-- ============ SKILLS ============ -->
-
-<section id="skills">
-  <div class="section-label reveal">Capability · Matrix</div>
-  <h2 class="section-title reveal">Technical &amp; <span class="italic">regulatory stack</span></h2>
-  <p class="section-desc reveal">
-    Deep enough to ship production code. Broad enough to bridge engineering,
-    compliance, and business conversations.
-  </p>
-
-  <div class="skills-grid">
-    <div class="skill-group reveal">
-      <div class="skill-group-label">// Engineering</div>
-      <ul class="skill-list">
-        <li class="skill-chip featured">Python</li>
-        <li class="skill-chip featured">SQL</li>
-        <li class="skill-chip">JavaScript</li>
-        <li class="skill-chip">Impala / Hive</li>
-        <li class="skill-chip">Machine Learning</li>
-        <li class="skill-chip">Web Scraping</li>
-        <li class="skill-chip">LLM / AI Agent</li>
-      </ul>
+    <div class="research-card reveal">
+      <div class="research-kind">Undergraduate Research · 2020</div>
+      <h3 class="research-title">Stock Manipulation Detection Using Data Mining</h3>
+      <div class="research-meta">Sookmyung Women's University</div>
+      <p class="research-desc">
+        First formal research project — applied data-mining techniques to Korean equity
+        tick data to identify patterns associated with spoofing and layering. The
+        methodology (pattern extraction → threshold tuning → validation) is essentially
+        the same shape of thinking I now use for AML scenario design.
+      </p>
     </div>
 
+    <div class="subheading">Paper Reviews</div>
+    <p class="section-desc reveal" style="margin-bottom: 20px;">
+      Curated reading log. Topics orbit blockchain privacy, financial crime detection,
+      digital forensics, and — more recently — AI security.
+    </p>
 
-<div class="skill-group reveal">
-  <div class="skill-group-label">// Security &amp; Forensics</div>
-  <ul class="skill-list">
-    <li class="skill-chip featured">Chainalysis Reactor</li>
-    <li class="skill-chip featured">Chainalysis KYT</li>
-    <li class="skill-chip">Digital Forensics</li>
-    <li class="skill-chip">FDS Engineering</li>
-    <li class="skill-chip">Blockchain Analysis</li>
-    <li class="skill-chip">Audio Forensics</li>
-    <li class="skill-chip">Incident Response</li>
-  </ul>
-</div>
+    <div class="paper-table reveal">
 
-<div class="skill-group reveal">
-  <div class="skill-group-label">// Compliance &amp; Audit</div>
-  <ul class="skill-list">
-    <li class="skill-chip featured">AML / KYT / KYC</li>
-    <li class="skill-chip featured">Privacy Law (KR)</li>
-    <li class="skill-chip">ISMS-P</li>
-    <li class="skill-chip">Internal Audit</li>
-    <li class="skill-chip">Risk Assessment</li>
-    <li class="skill-chip">Regulatory Response</li>
-    <li class="skill-chip">Travel Rule</li>
-  </ul>
-</div>
-
-
-  </div>
-
-  <div class="edu-grid" style="margin-top: 80px;">
-    <div class="edu-block reveal">
-      <h3>Education</h3>
-      <div class="edu-item">
-        <div class="edu-name">M.S. Digital Forensics</div>
-        <div class="edu-meta">Sungkyunkwan University · 2020–2023</div>
-        <div class="edu-note">Thesis: Analysis and tracking of Bitcoin mixing techniques (2022)</div>
-        <div class="edu-note">Research: Stock manipulation detection using data mining (2020)</div>
+      <div class="paper-row">
+        <span class="paper-num">01</span>
+        <span class="paper-title">SoK: How private is Bitcoin? Classification and Evaluation of Bitcoin Privacy Techniques</span>
+        <span class="paper-topic">Blockchain · Privacy</span>
       </div>
-      <div class="edu-item">
-        <div class="edu-name">B.S. Computer Science</div>
-        <div class="edu-meta">Sookmyung Women's University · 2019</div>
+      <div class="paper-row">
+        <span class="paper-num">02</span>
+        <span class="paper-title">Breaking Bad: De-Anonymising Entity Types on the Bitcoin Blockchain Using Supervised Machine Learning</span>
+        <span class="paper-topic">Blockchain · ML</span>
       </div>
+      <div class="paper-row">
+        <span class="paper-num">03</span>
+        <span class="paper-title">Bitcoin Money Laundering: Mixed Results?</span>
+        <span class="paper-topic">AML · Blockchain</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">04</span>
+        <span class="paper-title">Mixing Strategies in Cryptocurrencies and an Alternative Implementation</span>
+        <span class="paper-topic">Blockchain · Mixing</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">05</span>
+        <span class="paper-title">An Empirical Analysis of Traceability in the Monero Blockchain</span>
+        <span class="paper-topic">Monero · Traceability</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">06</span>
+        <span class="paper-title">Autonomous Coin Mixer with Privacy Preserving Reward Distribution</span>
+        <span class="paper-topic">Mixer · Privacy</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">07</span>
+        <span class="paper-title">비트코인 믹싱 분석 및 추적에 관한 연구 (Study on Bitcoin Mixing Analysis and Tracking)</span>
+        <span class="paper-topic">Bitcoin · Mixing · KOR</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">08</span>
+        <span class="paper-title">Analysis of Cryptocurrency Transactions from a Network Perspective</span>
+        <span class="paper-topic">Blockchain · Network</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">09</span>
+        <span class="paper-title">Distributed Ledger Privacy: Ring Signatures, Monero, and CryptoNote</span>
+        <span class="paper-topic">Monero · Privacy</span>
+      </div>
+
+      <div class="paper-row">
+        <span class="paper-num">10</span>
+        <span class="paper-title">Machine Learning in Digital Forensics</span>
+        <span class="paper-topic">Forensics · ML</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">11</span>
+        <span class="paper-title">Evaluation of Digital Forensic Process Models with Respect to Digital Forensics as a Service</span>
+        <span class="paper-topic">Forensics · Process</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">12</span>
+        <span class="paper-title">Deep Learning for Detecting Cyberbullying Across Multiple Social Media Platforms</span>
+        <span class="paper-topic">NLP · Social</span>
+      </div>
+
+      <div class="paper-row">
+        <span class="paper-num">13</span>
+        <span class="paper-title">Cyber Threat Intelligence Mining for Proactive Cybersecurity Defense: A Survey and New Perspectives</span>
+        <span class="paper-topic">CTI · Survey</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">14</span>
+        <span class="paper-title">Towards an AI-Enhanced Cyber Threat Intelligence Processing Pipeline</span>
+        <span class="paper-topic">CTI · AI</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">15</span>
+        <span class="paper-title">Countering Autonomous Cyber Threats</span>
+        <span class="paper-topic">AI Security</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">16</span>
+        <span class="paper-title">Generative AI Models: Opportunities and Risks for Industry and Authorities</span>
+        <span class="paper-topic">AI · Risk</span>
+      </div>
+
+      <div class="paper-row">
+        <span class="paper-num">17</span>
+        <span class="paper-title">A Comprehensive Survey on Graph Neural Networks</span>
+        <span class="paper-topic">ML · GNN</span>
+      </div>
+      <div class="paper-row">
+        <span class="paper-num">18</span>
+        <span class="paper-title">AutoML: A Survey of the State-of-the-Art</span>
+        <span class="paper-topic">ML · Survey</span>
+      </div>
+
     </div>
+  </section>
 
-
-<div class="edu-block reveal">
-  <h3>Certifications</h3>
-  <div class="edu-item">
-    <div class="edu-name">Chainalysis Cryptocurrency Investigator</div>
-    <div class="edu-meta">CISC · CRC · CKC (Reactor + KYT certified)</div>
-  </div>
-  <div class="edu-item">
-    <div class="edu-name">CPPG</div>
-    <div class="edu-meta">Certified Privacy Protection General</div>
-  </div>
-  <div class="edu-item">
-    <div class="edu-name">AML Specialist Certificate</div>
-    <div class="edu-meta">Anti-Money Laundering Specialist</div>
-  </div>
 </div>
+<!-- /studies -->
 
-
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-
-<section id="contact" class="contact">
-  <div class="section-label reveal">Let's · Connect</div>
-  <h2 class="contact-title reveal">Ready to build something <span class="italic">trustworthy</span>.</h2>
-  <a href="mailto:sylee2401@gmail.com" class="contact-email reveal">sylee2401@gmail.com</a>
-  <div class="contact-meta reveal">Seoul, Korea · Available for InfoSec &amp; Audit roles</div>
-</section>
 
 <footer>
   <div>© 2026 Seoyoung Lee · Built with care</div>
-  <div>Last deploy: <span id="deployDate"></span></div>
+  <div>Last deploy: <span id="deployDate">2026-04-24</span></div>
 </footer>
 
-<script>
-  // Deploy date
-  document.getElementById('deployDate').textContent = new Date().toISOString().slice(0, 10);
+<div class="cmdk-modal" id="cmdkModal" hidden aria-modal="true" role="dialog" aria-label="Command palette">
+  <div class="cmdk-backdrop" id="cmdkBackdrop"></div>
+  <div class="cmdk-panel">
+    <div class="cmdk-input-row">
+      <span class="cmdk-prompt">▸</span>
+      <input id="cmdkInput" type="text" placeholder="Type a command or search…  (try 'studies', 'email', 'theme')" autocomplete="off" spellcheck="false">
+      <kbd class="cmdk-esc">esc</kbd>
+    </div>
+    <div class="cmdk-list" id="cmdkList" role="listbox"></div>
+    <div class="cmdk-foot">
+      <span><kbd>↑↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> select</span>
+      <span><kbd>⌘K</kbd> · <kbd>/</kbd> open</span>
+    </div>
+  </div>
+</div>
 
-  // Typing animation for hero terminal
-  const typingEl = document.getElementById('heroType');
-  const words = ['digital_forensics_investigator', 'aml_scenario_architect', 'blockchain_tracker', 'audit_automator', 'privacy_engineer'];
-  let wordIdx = 0, charIdx = 0, deleting = false;
+<script>
+  const $ = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+
+  // today's date for footer
+  $('#deployDate').textContent = new Date().toISOString().slice(0, 10);
+
+  // build stamp on status card — just "YY.MM / seoul"
+  const d = new Date();
+  const yy = String(d.getFullYear()).slice(2);
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  $('#buildStamp').textContent = `${yy}.${mm} · seoul`;
+
+  // --- typing animation in hero (whoami → rotating roles) ---
+  const typingEl = $('#heroType');
+  const roles = [
+    'digital_forensics_investigator',
+    'aml_scenario_architect',
+    'blockchain_tracker',
+    'audit_automator',
+    'privacy_engineer'
+  ];
+  let roleIdx = 0, charIdx = 0, erasing = false;
+
   function type() {
-    const word = words[wordIdx];
-    if (!deleting) {
+    const word = roles[roleIdx];
+    if (!erasing) {
       typingEl.textContent = word.slice(0, charIdx++);
       if (charIdx > word.length) {
-        deleting = true;
+        erasing = true;
+        // 처음엔 1.5s였는데 너무 짧아서 1.8로 늘림
         setTimeout(type, 1800);
         return;
       }
@@ -1407,86 +2422,340 @@ footer { flex-direction: column; gap: 12px; }
     } else {
       typingEl.textContent = word.slice(0, charIdx--);
       if (charIdx < 0) {
-        deleting = false;
-        wordIdx = (wordIdx + 1) % words.length;
+        erasing = false;
+        roleIdx = (roleIdx + 1) % roles.length;
         setTimeout(type, 400);
         return;
       }
       setTimeout(type, 30);
     }
   }
-  setTimeout(type, 1500);
+  setTimeout(type, 1200);
 
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
+  // --- reveal-on-scroll (per-panel, re-observe on tab switch) ---
+  let revealIO;
+  function wireReveal(root) {
+    if (revealIO) revealIO.disconnect();
+    revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    $$('.reveal', root).forEach(el => {
+      el.classList.remove('visible');
+      revealIO.observe(el);
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Number counter for metrics
-  const metricsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('[data-count]').forEach(el => {
-          const target = parseInt(el.dataset.count);
-          const duration = 1800;
-          const startTime = performance.now();
-          const animate = (now) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(target * eased);
-            if (progress < 1) requestAnimationFrame(animate);
-            else el.textContent = target;
-          };
-          requestAnimationFrame(animate);
-        });
-        e.target.querySelectorAll('.metric').forEach((m, i) => {
-          setTimeout(() => m.classList.add('visible'), i * 120);
-        });
-        metricsObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
-  const metrics = document.getElementById('metrics');
-  if (metrics) metricsObserver.observe(metrics);
-
-  // Theme toggle (dark/light)
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const themeLabel = document.getElementById('themeLabel');
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-  if (savedTheme === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    themeIcon.textContent = '☀';
-    themeLabel.textContent = 'LIGHT';
   }
-  themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) {
-      document.documentElement.removeAttribute('data-theme');
-      themeIcon.textContent = '☾';
-      themeLabel.textContent = 'DARK';
-      localStorage.setItem('portfolio-theme', 'dark');
-    } else {
+
+  // --- risk report (replaces old metric counters) ---
+  async function runRiskReport() {
+    const host = $('#riskReport');
+    if (!host || host.dataset.ran === '1') return;
+    host.dataset.ran = '1';
+
+    // assessment id — deterministic-looking short ref
+    const now = new Date();
+    const yymm = `${String(now.getFullYear()).slice(2)}${String(now.getMonth() + 1).padStart(2, '0')}`;
+    const refBytes = crypto.getRandomValues(new Uint8Array(2));
+    const ref = Array.from(refBytes).map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+    const idEl = $('#rrAssessmentId');
+    if (idEl) idEl.textContent = `SYL-${yymm}-${ref}`;
+
+    // score count-up (0.00 → 0.02)
+    const scoreEl = $('#rrScoreVal');
+    if (scoreEl) {
+      const target = 0.02;
+      const t0 = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - t0) / 900, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        scoreEl.textContent = (target * eased).toFixed(2);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // profile hash — real sha256 of a stable payload
+    try {
+      const payload = 'seoyoung.lee|security-audit|public';
+      const buf = new TextEncoder().encode(payload);
+      const digest = await crypto.subtle.digest('SHA-256', buf);
+      const hex = Array.from(new Uint8Array(digest))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+      const hashEl = $('#rrHash');
+      if (hashEl) hashEl.textContent = hex;
+    } catch (err) {
+      // SubtleCrypto 실패하면 그냥 스킵 (https 아닐 때)
+      const hashEl = $('#rrHash');
+      if (hashEl) hashEl.textContent = '— (crypto.subtle unavailable)';
+    }
+  }
+
+  // --- command palette ---
+  const cmdk = {
+    el: $('#cmdkModal'),
+    input: $('#cmdkInput'),
+    list: $('#cmdkList'),
+    selected: 0,
+    filtered: [],
+    commands: [
+      { g: 'Navigate', t: 'Go to Overview', h: 'Hero · Journey · Skills', i: '▸', k: 'overview home intro hero journey',
+        run: () => activate('overview') },
+      { g: 'Navigate', t: 'Go to Projects', h: 'Work · Research · Side', i: '▸', k: 'projects work aml fds audit',
+        run: () => activate('projects') },
+      { g: 'Navigate', t: 'Go to Studies', h: 'Thesis · Papers', i: '▸', k: 'studies papers thesis research reviews',
+        run: () => activate('studies') },
+      { g: 'Navigate', t: 'Jump to Contact', h: '#contact', i: '▸', k: 'contact email reach hire',
+        run: () => { activate('overview'); setTimeout(() => { location.hash = '#contact'; }, 120); } },
+      { g: 'Navigate', t: 'Jump to Skills & Certs', h: '#stack', i: '▸', k: 'skills stack certs education capability',
+        run: () => { activate('overview'); setTimeout(() => { $('#stack')?.scrollIntoView({ behavior: 'smooth' }); }, 120); } },
+
+      { g: 'Toggle', t: 'Toggle Theme (Dark / Light)', h: '', i: '◐', k: 'theme dark light mode color',
+        run: () => $('#themeToggle').click() },
+      { g: 'Toggle', t: 'Toggle Language (EN / KR)', h: '', i: '◐', k: 'language english korean ko en lang',
+        run: () => $('#langToggle').click() },
+
+      { g: 'Action', t: 'Send Email', h: 'sylee2401@gmail.com', i: '→', k: 'email mail contact write',
+        run: () => { location.href = 'mailto:sylee2401@gmail.com'; } },
+      { g: 'Action', t: 'Copy Email Address', h: 'clipboard', i: '⎘', k: 'email copy clipboard',
+        run: () => copyText('sylee2401@gmail.com') },
+
+      { g: 'Projects', t: 'AML & Privacy Continuous Monitoring', h: 'Toss Bank · 2025', i: '/', k: 'aml privacy monitoring toss',
+        run: () => jumpToProject(0) },
+      { g: 'Projects', t: 'AI Agent Audit Automation', h: 'Toss Bank · 2025', i: '/', k: 'ai agent audit automation llm',
+        run: () => jumpToProject(1) },
+      { g: 'Projects', t: 'Privacy Management System', h: 'Coupang · 2023', i: '/', k: 'privacy coupang pms cppg',
+        run: () => jumpToProject(2) },
+      { g: 'Projects', t: 'NFT Fraud Detection (ML)', h: 'LINE NEXT · 2022-23', i: '/', k: 'nft fraud ml line next chainalysis kyt',
+        run: () => jumpToProject(3) },
+      { g: 'Projects', t: 'Voice Tampering Detection', h: 'Daeryun · 2024-25', i: '/', k: 'voice audio forensic daeryun',
+        run: () => jumpToProject(4) },
+      { g: 'Projects', t: 'Regulatory Web Crawler Suite', h: 'Toss Bank · 2025', i: '/', k: 'crawler regulatory fss fsc',
+        run: () => jumpToProject(5) },
+    ],
+
+    open() {
+      this.el.removeAttribute('hidden');
+      this.input.value = '';
+      this.selected = 0;
+      this.render();
+      setTimeout(() => this.input.focus(), 20);
+    },
+    close() {
+      this.el.setAttribute('hidden', '');
+    },
+    isOpen() {
+      return !this.el.hasAttribute('hidden');
+    },
+    render() {
+      const q = this.input.value.toLowerCase().trim();
+      this.filtered = this.commands.filter(c => {
+        if (!q) return true;
+        return (c.t + ' ' + (c.k || '') + ' ' + (c.h || '')).toLowerCase().includes(q);
+      });
+      if (this.selected >= this.filtered.length) this.selected = 0;
+
+      if (this.filtered.length === 0) {
+        this.list.innerHTML = '<div class="cmdk-empty">No matches — try another keyword</div>';
+        return;
+      }
+
+      let html = '';
+      let curGroup = '';
+      this.filtered.forEach((c, i) => {
+        if (c.g !== curGroup) {
+          html += `<div class="cmdk-group">${c.g}</div>`;
+          curGroup = c.g;
+        }
+        html += `
+          <div class="cmdk-item" role="option" aria-selected="${i === this.selected}" data-idx="${i}">
+            <span class="cmdk-item-icon">${c.i || '▸'}</span>
+            <span class="cmdk-item-main">${c.t}</span>
+            <span class="cmdk-item-hint">${c.h || ''}</span>
+          </div>
+        `;
+      });
+      this.list.innerHTML = html;
+
+      $$('.cmdk-item', this.list).forEach(el => {
+        el.addEventListener('click', () => {
+          this.selected = parseInt(el.dataset.idx, 10);
+          this.execute();
+        });
+        el.addEventListener('mousemove', () => {
+          const idx = parseInt(el.dataset.idx, 10);
+          if (idx !== this.selected) {
+            this.selected = idx;
+            this.updateSelection();
+          }
+        });
+      });
+    },
+    updateSelection() {
+      $$('.cmdk-item', this.list).forEach((el, i) => {
+        el.setAttribute('aria-selected', i === this.selected ? 'true' : 'false');
+      });
+      const sel = this.list.querySelector('[aria-selected="true"]');
+      if (sel) sel.scrollIntoView({ block: 'nearest' });
+    },
+    move(dir) {
+      if (!this.filtered.length) return;
+      this.selected = (this.selected + dir + this.filtered.length) % this.filtered.length;
+      this.updateSelection();
+    },
+    execute() {
+      const cmd = this.filtered[this.selected];
+      if (!cmd) return;
+      this.close();
+      setTimeout(cmd.run, 60);
+    }
+  };
+
+  function copyText(text) {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = 'copied: ' + text;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 1600);
+    });
+  }
+
+  function jumpToProject(idx) {
+    activate('projects');
+    setTimeout(() => {
+      const card = $$('.project')[idx];
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+  }
+
+  // cmdk keyboard wiring
+  $('#cmdkTrigger')?.addEventListener('click', () => cmdk.open());
+  $('#cmdkBackdrop')?.addEventListener('click', () => cmdk.close());
+  cmdk.input?.addEventListener('input', () => {
+    cmdk.selected = 0;
+    cmdk.render();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const mod = e.metaKey || e.ctrlKey;
+    // Cmd/Ctrl+K — open/close regardless of focus
+    if (mod && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      cmdk.isOpen() ? cmdk.close() : cmdk.open();
+      return;
+    }
+    // "/" — open only when not already typing somewhere
+    const tag = document.activeElement?.tagName;
+    if (!cmdk.isOpen() && e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
+      e.preventDefault();
+      cmdk.open();
+      return;
+    }
+    if (!cmdk.isOpen()) return;
+    if (e.key === 'Escape') { cmdk.close(); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); cmdk.move(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); cmdk.move(-1); }
+    else if (e.key === 'Enter') { e.preventDefault(); cmdk.execute(); }
+  });
+
+  // --- tab routing ---
+  const tabs = $$('.tab-btn');
+  const panels = {
+    overview: $('#panel-overview'),
+    projects: $('#panel-projects'),
+    studies:  $('#panel-studies'),
+  };
+
+  function activate(tabId, opts) {
+    opts = opts || {};
+    if (!panels[tabId]) tabId = 'overview';
+
+    tabs.forEach(t => {
+      const on = t.dataset.tab === tabId;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Object.keys(panels).forEach(k => {
+      if (k === tabId) panels[k].removeAttribute('hidden');
+      else panels[k].setAttribute('hidden', '');
+    });
+
+    // reset reveal + scroll
+    wireReveal(panels[tabId]);
+    if (!opts.silent) window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+
+    // risk report is the new metrics visualization
+    if (tabId === 'overview') {
+      setTimeout(runRiskReport, 250);
+    }
+
+    // sync hash (but don't stomp #contact)
+    if (!opts.silent && location.hash.replace('#', '') !== 'contact') {
+      history.replaceState(null, '', '#' + tabId);
+    }
+  }
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => activate(btn.dataset.tab));
+  });
+
+  // View-Work / CTA inside overview
+  $$('[data-goto-tab]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      activate(el.dataset.gotoTab);
+    });
+  });
+
+  // initial tab from hash
+  const initial = (location.hash || '#overview').replace('#', '');
+  const initialTab = ['overview', 'projects', 'studies'].includes(initial) ? initial : 'overview';
+  activate(initialTab, { silent: true });
+
+  window.addEventListener('hashchange', () => {
+    const h = location.hash.replace('#', '');
+    if (['overview', 'projects', 'studies'].includes(h)) activate(h, { silent: true });
+    // #contact 같은 경우엔 브라우저 기본 스크롤에 맡김
+  });
+
+  // --- theme toggle ---
+  const themeToggle = $('#themeToggle');
+  const themeIcon = $('#themeIcon');
+  const themeLabel = $('#themeLabel');
+
+  function applyTheme(mode) {
+    if (mode === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
       themeIcon.textContent = '☀';
       themeLabel.textContent = 'LIGHT';
-      localStorage.setItem('portfolio-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeIcon.textContent = '☾';
+      themeLabel.textContent = 'DARK';
     }
+  }
+  applyTheme(localStorage.getItem('portfolio-theme') || 'dark');
+
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+    localStorage.setItem('portfolio-theme', next);
   });
 
-  // Language toggle
+  // --- language toggle ---
   let lang = 'en';
-  const toggle = document.getElementById('langToggle');
-  toggle.addEventListener('click', () => {
-    lang = lang === 'en' ? 'ko' : 'en';
-    toggle.textContent = lang === 'en' ? 'EN / KR' : 'KR / EN';
-    document.querySelectorAll('[data-en]').forEach(el => {
-      el.innerHTML = el.dataset[lang] || el.dataset.en;
+  const langBtn = $('#langToggle');
+  langBtn.addEventListener('click', () => {
+    lang = (lang === 'en') ? 'ko' : 'en';
+    langBtn.textContent = (lang === 'en') ? 'EN / KR' : 'KR / EN';
+    $$('[data-en]').forEach(el => {
+      const next = el.dataset[lang];
+      if (next) el.innerHTML = next;
     });
   });
 </script>

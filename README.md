@@ -11,6 +11,7 @@ Source for my public web portfolio.
 - React / Vue.js
 - PostgreSQL / MySQL / SQL
 - game development and programming instruction
+- SnackFit recommendation-system work from undergraduate capstone through freelance commercial application
 - fraud / abuse / AML monitoring
 - privacy and security engineering
 - digital forensics and blockchain analysis

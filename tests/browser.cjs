@@ -91,7 +91,12 @@ const path = require('node:path');
           assert.match(await link.getAttribute('rel'), /noopener/);
         }
       }
-      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'no horizontal overflow');
+      const layout = await page.evaluate(() => ({
+        width: innerWidth, documentWidth: document.documentElement.scrollWidth,
+        overflowing: [...document.querySelectorAll('body *')].map(el => ({ tag: el.tagName, class: el.className, text: el.textContent.slice(0, 100), right: el.getBoundingClientRect().right })).filter(el => el.right > innerWidth + 1),
+      }));
+      await fs.writeFile(path.join(out, `${name}-layout.json`), JSON.stringify(layout, null, 2));
+      assert.ok(layout.documentWidth <= layout.width, JSON.stringify(layout));
       results.push(`${name}: current featured content, links, screenshots, no horizontal overflow`);
 
       await page.getByRole('button', { name: 'Open command palette' }).click();

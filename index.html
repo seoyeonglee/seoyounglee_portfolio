@@ -704,6 +704,30 @@
     letter-spacing: 0.8px;
   }
 
+  .side-row-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .side-row-link {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--cyan);
+    padding: 6px 10px;
+    border: 1px solid var(--cyan-dim);
+    text-decoration: none;
+    letter-spacing: 0.8px;
+    transition: all 0.2s;
+  }
+
+  .side-row-link:hover {
+    color: var(--bg);
+    background: var(--cyan);
+    border-color: var(--cyan);
+  }
+
   .subheading {
     font-family: var(--mono);
     font-size: 11px;
@@ -1678,7 +1702,13 @@
           <li class="skill-chip featured">Python</li>
           <li class="skill-chip featured">JavaScript</li>
           <li class="skill-chip featured">Node.js</li>
+          <li class="skill-chip featured">FastAPI</li>
           <li class="skill-chip">TypeScript</li>
+          <li class="skill-chip">Redis</li>
+          <li class="skill-chip">Docker</li>
+          <li class="skill-chip">Docker Compose</li>
+          <li class="skill-chip">Prometheus</li>
+          <li class="skill-chip">GitHub Actions</li>
                     <li class="skill-chip">Java</li>
           <li class="skill-chip">Bash</li>
 <li class="skill-chip">React</li>
@@ -1777,14 +1807,44 @@
     <div class="section-label reveal">Selected Work · 2019 – 2026</div>
     <h2 class="section-title reveal">Projects that <span class="italic">shipped</span></h2>
     <p class="section-desc reveal">
-      Production deployments, public engineering repositories, research systems, and side builds.
+      Production deployments, live full-stack services, public engineering repositories, research systems, and side builds.
       The common thread is turning ambiguous operational problems into working software,
-      measurable controls, and reproducible technical artifacts.
+      measurable controls, reproducible technical artifacts, and deployable systems.
     </p>
 
     <div class="subheading">Engineering · Public Repositories</div>
 
     <div class="side-list">
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <a class="side-row-title" href="https://github.com/seoyeonglee/high-throughput-event-platform" target="_blank" rel="noopener" style="text-decoration:none;">High-Throughput Event Platform ↗</a>
+          <span class="side-row-year">2026</span>
+        </div>
+        <div class="side-row-ctx">Live Full-Stack Service · Event-Driven Architecture</div>
+        <p class="side-row-desc">
+          End-to-end full-stack event platform with a React/TypeScript operations console, FastAPI REST APIs,
+          asynchronous event processing, user/event analytics, Dockerized local orchestration, observability,
+          and CI. The repository includes the production-oriented Redis Streams + PostgreSQL architecture,
+          while the public live demo uses a zero-cost ephemeral backend so recruiters can interact with the
+          browser-to-API flow without paid infrastructure.
+        </p>
+        <div class="side-row-links">
+          <a class="side-row-link" href="https://seoyoung-event-platform.onrender.com/" target="_blank" rel="noopener">LIVE DEMO ↗</a>
+          <a class="side-row-link" href="https://seoyoung-event-platform-api.onrender.com/docs" target="_blank" rel="noopener">API DOCS ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/high-throughput-event-platform" target="_blank" rel="noopener">GITHUB ↗</a>
+        </div>
+        <div class="side-row-tags">
+          <span class="side-row-tag">React</span>
+          <span class="side-row-tag">TypeScript</span>
+          <span class="side-row-tag">FastAPI</span>
+          <span class="side-row-tag">Redis Streams</span>
+          <span class="side-row-tag">PostgreSQL</span>
+          <span class="side-row-tag">Docker</span>
+          <span class="side-row-tag">Prometheus</span>
+          <span class="side-row-tag">GitHub Actions</span>
+        </div>
+      </div>
+
       <div class="side-row reveal">
         <div class="side-row-head">
           <a class="side-row-title" href="https://github.com/seoyeonglee/seoyeonglee/tree/main/projects/holdem-realtime-lab" target="_blank" rel="noopener" style="text-decoration:none;">Hold'em Real-Time Server Lab ↗</a>
@@ -2632,6 +2692,10 @@
         run: () => copyText('sylee2401@gmail.com') },
       { g: 'Action', t: 'Open GitHub Profile', h: 'github.com/seoyeonglee', i: '→', k: 'github code repository repos development',
         run: () => { window.open('https://github.com/seoyeonglee', '_blank', 'noopener'); } },
+      { g: 'Projects', t: 'High-Throughput Event Platform', h: 'React · FastAPI · Redis · PostgreSQL', i: '/', k: 'fullstack full stack react typescript fastapi redis postgres docker event platform',
+        run: () => { window.open('https://github.com/seoyeonglee/high-throughput-event-platform', '_blank', 'noopener'); } },
+      { g: 'Projects', t: 'Open Event Platform Live Demo', h: 'Render · Live Service', i: '→', k: 'live demo deployed render fullstack event platform',
+        run: () => { window.open('https://seoyoung-event-platform.onrender.com/', '_blank', 'noopener'); } },
       { g: 'Projects', t: "Hold'em Real-Time Server Lab", h: 'TypeScript · Node.js · WebSocket', i: '/', k: 'holdem poker game websocket node typescript csprng',
         run: () => { window.open('https://github.com/seoyeonglee/seoyeonglee/tree/main/projects/holdem-realtime-lab', '_blank', 'noopener'); } },
       { g: 'Projects', t: 'Fraud Risk Engine', h: 'Python · Explainable Risk', i: '/', k: 'fraud risk engine python rules',

@@ -30,6 +30,7 @@ const path = require('node:path');
       page.on('pageerror', error => errors.push(error.message));
       await page.goto(base);
       await page.locator('.hero-tagline').waitFor({ state: 'visible' });
+      await page.waitForFunction(() => ['.hero-tagline', '.hero-cta', '.hero-status', '#panel-overview'].every(selector => getComputedStyle(document.querySelector(selector)).opacity === '1'));
       await page.screenshot({ path: path.join(out, `${name}-overview.png`) });
 
       await page.getByRole('link', { name: 'Get in Touch' }).click();
@@ -133,6 +134,7 @@ const path = require('node:path');
       assert.match(await page.locator('.hero-tagline').textContent(), /풀스택/);
       await page.locator('#themeToggle').click();
       assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
+      await page.waitForFunction(() => scrollY === 0 && getComputedStyle(document.querySelector('#panel-overview')).opacity === '1');
       await page.screenshot({ path: path.join(out, `${name}-overview-ko-light.png`) });
       assert.deepEqual(errors, []);
       results.push(`${name}: Korean copy, light theme, no uncaught JavaScript errors`);

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seoyoung Lee — Security, Risk &amp; Software Engineering Portfolio</title>
-<meta name="description" content="Security, fraud/risk, software engineering, game development, digital forensics, blockchain analytics, and audit automation portfolio.">
+<title>Seoyoung Lee — Full-Stack &amp; Applied AI Engineering Portfolio</title>
+<meta name="description" content="Full-stack applications, backend/data platforms, automation, and applied AI engineering, informed by fintech, security, fraud/risk, and digital forensics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -1062,6 +1062,7 @@
     .metric:nth-child(odd) { border-right: 1px solid var(--line); }
     .metric-value { font-size: 44px; }
     .projects-grid, .side-list { grid-template-columns: 1fr; }
+    .side-row-head { flex-wrap: wrap; }
     .project { padding: 40px 28px; min-height: auto; }
     .project-title { font-size: 26px; }
     .skills-grid { grid-template-columns: 1fr; }
@@ -1470,7 +1471,7 @@
       <div>
         <div class="hero-terminal">
           <span class="prompt">$</span> whoami<br>
-          <span class="typing" id="heroType">blockchain_tracker</span>
+          <span class="typing" id="heroType">full_stack_engineer</span>
         </div>
         <h1>
           <span class="name" data-en="Seoyoung Lee" data-ko="이서영">Seoyoung Lee</span>
@@ -1478,12 +1479,13 @@
           through <span class="accent">data</span>.
         </h1>
         <p class="hero-tagline"
-           data-en="Security, risk &amp; software professional with &lt;span class='hl'&gt;7+ years&lt;/span&gt; across technology, fintech, law, and finance — with earlier hands-on experience in &lt;span class='hl'&gt;game development&lt;/span&gt;, web engineering, and programming instruction. I connect &lt;span class='hl'&gt;software&lt;/span&gt;, &lt;span class='hl'&gt;data&lt;/span&gt;, security, and regulatory thinking to build systems that are practical, observable, and explainable."
-           data-ko="기술·핀테크·법무·금융을 아우르는 &lt;span class='hl'&gt;7년+&lt;/span&gt;의 보안·리스크·소프트웨어 경력과, 그 이전의 &lt;span class='hl'&gt;게임 개발&lt;/span&gt;·웹 개발·코딩 교육 경험을 보유하고 있습니다. &lt;span class='hl'&gt;소프트웨어&lt;/span&gt;·&lt;span class='hl'&gt;데이터&lt;/span&gt;·보안·규제 관점을 연결해 실제 운영 환경에서 관찰 가능하고 설명 가능한 시스템을 만듭니다.">
-          Security, risk &amp; software professional with <span class="hl">7+ years</span> across technology, fintech, law, and finance — with earlier hands-on experience in <span class="hl">game development</span>, web engineering, and programming instruction. I connect <span class="hl">software</span>, <span class="hl">data</span>, security, and regulatory thinking to build systems that are practical, observable, and explainable.
+           data-en="I build &lt;span class='hl'&gt;full-stack applications&lt;/span&gt;, backend/data platforms, automation systems, and &lt;span class='hl'&gt;applied AI tooling&lt;/span&gt;. My &lt;span class='hl'&gt;7+ years&lt;/span&gt; across technology, fintech, law, and finance — plus earlier game development, web engineering, and programming instruction — bring security, risk, and regulatory depth to practical, observable, and explainable software."
+           data-ko="&lt;span class='hl'&gt;풀스택 애플리케이션&lt;/span&gt;, 백엔드·데이터 플랫폼, 자동화 시스템, &lt;span class='hl'&gt;응용 AI 도구&lt;/span&gt;를 만듭니다. 기술·핀테크·법무·금융을 아우르는 &lt;span class='hl'&gt;7년+&lt;/span&gt;의 경력과 그 이전의 게임 개발·웹 개발·코딩 교육 경험을 바탕으로, 보안·리스크·규제에 대한 이해를 실제로 동작하고 관찰 가능하며 설명 가능한 소프트웨어에 연결합니다.">
+          I build <span class='hl'>full-stack applications</span>, backend/data platforms, automation systems, and <span class='hl'>applied AI tooling</span>. My <span class='hl'>7+ years</span> across technology, fintech, law, and finance — plus earlier game development, web engineering, and programming instruction — bring security, risk, and regulatory depth to practical, observable, and explainable software.
         </p>
         <div class="hero-tags">
-          <span class="tag">Software Engineering</span>
+          <span class="tag">Full-Stack Engineering</span>
+          <span class="tag">Applied AI</span>
           <span class="tag">Game Development</span>
           <span class="tag">Fraud / Risk</span>
           <span class="tag">Security</span>
@@ -1805,7 +1807,7 @@
 
   <section class="block" style="padding-top: 140px;">
     <div class="section-label reveal">Selected Work · 2019 – 2026</div>
-    <h2 class="section-title reveal">Projects that <span class="italic">shipped</span></h2>
+    <h2 class="section-title reveal">Engineering in <span class="italic">practice</span></h2>
     <p class="section-desc reveal">
       Production deployments, interactive full-stack services, applied-AI systems, public engineering repositories, research systems, and side builds.
       The common thread is turning ambiguous operational problems into working software,
@@ -1813,8 +1815,107 @@
     </p>
 
     <div class="subheading">Engineering · Public Repositories</div>
+    <p class="section-desc reveal">
+      Portfolio and reference implementations with reproducible source and explicit limits.
+      Data-driven demos use synthetic or openly available data, never employer data.
+    </p>
 
     <div class="side-list">
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <a class="side-row-title" href="https://github.com/seoyeonglee/audit-evidence-agent" target="_blank" rel="noopener" style="text-decoration:none;">Audit Evidence / Operations ↗</a>
+          <span class="side-row-year">2026</span>
+        </div>
+        <div class="side-row-ctx">Evidence Operations · Source-Backed Records · Human Review</div>
+        <p class="side-row-desc">
+          Full-stack evidence-review workspace with source-backed records, tenant and role boundaries,
+          durable leased SQL jobs, version-checked human approval, and append-only audit history.
+          Operations uses deterministic text/CSV/JSON extraction; the separate RAG Lab demonstrates
+          TF-IDF retrieval, citation validation, and an optional OpenAI reasoner.
+        </p>
+        <p class="side-row-desc">
+          The public demo uses SQLite and fictional documents and personas. PostgreSQL row-level
+          isolation and concurrency are verified separately in the integration suite.
+        </p>
+        <div class="side-row-links">
+          <a class="side-row-link" href="https://seoyoung-audit-evidence.onrender.com/" target="_blank" rel="noopener">LIVE WORKSPACE ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/audit-evidence-agent" target="_blank" rel="noopener">GITHUB ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/audit-evidence-agent/blob/main/docs/architecture.md" target="_blank" rel="noopener">ARCHITECTURE ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/audit-evidence-agent/tree/main/tests/platform" target="_blank" rel="noopener">TESTS ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/audit-evidence-agent/blob/main/docs/ai-pipeline.md" target="_blank" rel="noopener">AI BOUNDARIES ↗</a>
+        </div>
+        <div class="side-row-tags">
+          <span class="side-row-tag">React</span>
+          <span class="side-row-tag">TypeScript</span>
+          <span class="side-row-tag">FastAPI</span>
+          <span class="side-row-tag">SQLAlchemy</span>
+          <span class="side-row-tag">PostgreSQL / SQLite</span>
+          <span class="side-row-tag">pytest</span>
+          <span class="side-row-tag">Playwright</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <a class="side-row-title" href="https://github.com/seoyeonglee/fintech-usage-recommender" target="_blank" rel="noopener" style="text-decoration:none;">FinScope · Usage &amp; Recommendation Intelligence ↗</a>
+          <span class="side-row-year">2026</span>
+        </div>
+        <div class="side-row-ctx">Interactive Analytics · Explainable Ranking · Offline Evaluation</div>
+        <p class="side-row-desc">
+          Explore usage by cohort and period, adjust hybrid-ranking weights, and inspect the score
+          contributions behind each recommendation. Cold-start handling and time-split offline
+          evaluation use the same TypeScript domain engine as the interactive browser workspace.
+        </p>
+        <p class="side-row-desc">
+          Runs on synthetic sessions without bank-account connections. Evaluation metrics validate
+          this bounded dataset, not real-market performance.
+        </p>
+        <div class="side-row-links">
+          <a class="side-row-link" href="https://seoyoung-finscope.onrender.com/" target="_blank" rel="noopener">LIVE DEMO ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/fintech-usage-recommender" target="_blank" rel="noopener">GITHUB ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/fintech-usage-recommender/blob/main/docs/architecture.md" target="_blank" rel="noopener">ARCHITECTURE ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/fintech-usage-recommender/blob/main/docs/model-card.md" target="_blank" rel="noopener">EVALUATION &amp; LIMITS ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/fintech-usage-recommender/blob/main/docs/browser-verification.json" target="_blank" rel="noopener">BROWSER TESTS ↗</a>
+        </div>
+        <div class="side-row-tags">
+          <span class="side-row-tag">React</span>
+          <span class="side-row-tag">TypeScript</span>
+          <span class="side-row-tag">Vite</span>
+          <span class="side-row-tag">Node.js</span>
+          <span class="side-row-tag">Playwright</span>
+          <span class="side-row-tag">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="side-row reveal">
+        <div class="side-row-head">
+          <a class="side-row-title" href="https://github.com/seoyeonglee/crypto-transaction-tracer" target="_blank" rel="noopener" style="text-decoration:none;">Crypto Transaction Tracer ↗</a>
+          <span class="side-row-year">2026</span>
+        </div>
+        <div class="side-row-ctx">Live Full-Stack Investigation Console · Graph Analytics</div>
+        <p class="side-row-desc">
+          Interactive blockchain-investigation console built on the existing Python/NetworkX tracing engine.
+          Analysts can choose a synthetic seed wallet, switch inbound/outbound tracing, change hop depth,
+          explore a live transaction graph, inspect address-level risk signals, follow exposure paths to
+          synthetic high-risk services, and review the transaction evidence supporting each trace.
+        </p>
+        <div class="side-row-links">
+          <a class="side-row-link" href="https://seoyoung-crypto-tracer.onrender.com/" target="_blank" rel="noopener">LIVE DEMO ↗</a>
+          <a class="side-row-link" href="https://seoyoung-crypto-tracer-api.onrender.com/docs" target="_blank" rel="noopener">API DOCS ↗</a>
+          <a class="side-row-link" href="https://github.com/seoyeonglee/crypto-transaction-tracer" target="_blank" rel="noopener">GITHUB ↗</a>
+        </div>
+        <div class="side-row-tags">
+          <span class="side-row-tag">React</span>
+          <span class="side-row-tag">TypeScript</span>
+          <span class="side-row-tag">Cytoscape.js</span>
+          <span class="side-row-tag">FastAPI</span>
+          <span class="side-row-tag">Python</span>
+          <span class="side-row-tag">NetworkX</span>
+          <span class="side-row-tag">Graph Analytics</span>
+          <span class="side-row-tag">Explainable Risk</span>
+        </div>
+      </div>
+
       <div class="side-row reveal">
         <div class="side-row-head">
           <a class="side-row-title" href="https://github.com/seoyeonglee/high-throughput-event-platform" target="_blank" rel="noopener" style="text-decoration:none;">High-Throughput Event Platform ↗</a>
@@ -1854,75 +1955,21 @@
         <p class="side-row-desc">Reusable TypeScript/Node.js real-time systems prototype combining server-authoritative WebSocket state, ordered match phases, CSPRNG-based fairness randomization, layered settlement logic, a React + PixiJS Canvas/WebGL surface, rule-based strategy decisions, Redis reconnect sessions, PostgreSQL event history, and explainable integrity/collusion-risk signals.</p>
         <div class="side-row-tags"><span class="side-row-tag">TypeScript</span><span class="side-row-tag">Node.js</span><span class="side-row-tag">WebSocket</span><span class="side-row-tag">React</span><span class="side-row-tag">PixiJS</span><span class="side-row-tag">Redis</span><span class="side-row-tag">CSPRNG</span></div>
       </div>
-      <div class="side-row reveal">
-        <div class="side-row-head"><a class="side-row-title" href="https://github.com/seoyeonglee/fraud-risk-engine" target="_blank" rel="noopener" style="text-decoration:none;">Fraud Risk Engine ↗</a><span class="side-row-year">2026</span></div>
-        <div class="side-row-ctx">Public Project · Explainable Risk Detection</div>
-        <p class="side-row-desc">Reproducible fraud-risk pipeline combining customer baselines, transaction-pattern rules, velocity checks, and explainable scoring on synthetic data. Every alert remains traceable to named signals rather than a black-box score.</p>
-        <div class="side-row-tags"><span class="side-row-tag">Python</span><span class="side-row-tag">Pandas</span><span class="side-row-tag">Rule Engine</span><span class="side-row-tag">Risk Scoring</span></div>
-      </div>
+
       <div class="side-row reveal">
         <div class="side-row-head"><a class="side-row-title" href="https://github.com/seoyeonglee/privacy-access-monitor" target="_blank" rel="noopener" style="text-decoration:none;">Privacy Access Monitor ↗</a><span class="side-row-year">2026</span></div>
         <div class="side-row-ctx">Public Project · Behavioral Access Monitoring</div>
         <p class="side-row-desc">Detects unusual access to sensitive data using behavioral baselines, transparent rules, and explainable risk scoring — a public-safe recreation of access-monitoring problems encountered in privacy and internal-control work.</p>
         <div class="side-row-tags"><span class="side-row-tag">Python</span><span class="side-row-tag">Privacy</span><span class="side-row-tag">Anomaly Detection</span><span class="side-row-tag">Monitoring</span></div>
       </div>
+
       <div class="side-row reveal">
-        <div class="side-row-head">
-          <a class="side-row-title" href="https://github.com/seoyeonglee/crypto-transaction-tracer" target="_blank" rel="noopener" style="text-decoration:none;">Crypto Transaction Tracer ↗</a>
-          <span class="side-row-year">2026</span>
-        </div>
-        <div class="side-row-ctx">Live Full-Stack Investigation Console · Graph Analytics</div>
-        <p class="side-row-desc">
-          Interactive blockchain-investigation console built on the existing Python/NetworkX tracing engine.
-          Analysts can choose a synthetic seed wallet, switch inbound/outbound tracing, change hop depth,
-          explore a live transaction graph, inspect address-level risk signals, follow exposure paths to
-          synthetic high-risk services, and review the transaction evidence supporting each trace.
-        </p>
-        <div class="side-row-links">
-          <a class="side-row-link" href="https://seoyoung-crypto-tracer.onrender.com/" target="_blank" rel="noopener">LIVE DEMO ↗</a>
-          <a class="side-row-link" href="https://seoyoung-crypto-tracer-api.onrender.com/docs" target="_blank" rel="noopener">API DOCS ↗</a>
-          <a class="side-row-link" href="https://github.com/seoyeonglee/crypto-transaction-tracer" target="_blank" rel="noopener">GITHUB ↗</a>
-        </div>
-        <div class="side-row-tags">
-          <span class="side-row-tag">React</span>
-          <span class="side-row-tag">TypeScript</span>
-          <span class="side-row-tag">Cytoscape.js</span>
-          <span class="side-row-tag">FastAPI</span>
-          <span class="side-row-tag">Python</span>
-          <span class="side-row-tag">NetworkX</span>
-          <span class="side-row-tag">Graph Analytics</span>
-          <span class="side-row-tag">Explainable Risk</span>
-        </div>
+        <div class="side-row-head"><a class="side-row-title" href="https://github.com/seoyeonglee/fraud-risk-engine" target="_blank" rel="noopener" style="text-decoration:none;">Fraud Risk Engine ↗</a><span class="side-row-year">2026</span></div>
+        <div class="side-row-ctx">Public Project · Explainable Risk Detection</div>
+        <p class="side-row-desc">Reproducible fraud-risk pipeline combining customer baselines, transaction-pattern rules, velocity checks, and explainable scoring on synthetic data. Every alert remains traceable to named signals rather than a black-box score.</p>
+        <div class="side-row-tags"><span class="side-row-tag">Python</span><span class="side-row-tag">Pandas</span><span class="side-row-tag">Rule Engine</span><span class="side-row-tag">Risk Scoring</span></div>
       </div>
-      <div class="side-row reveal">
-        <div class="side-row-head">
-          <a class="side-row-title" href="https://github.com/seoyeonglee/audit-evidence-agent" target="_blank" rel="noopener" style="text-decoration:none;">Audit Evidence Agent ↗</a>
-          <span class="side-row-year">2026</span>
-        </div>
-        <div class="side-row-ctx">Live Applied-AI Control Room · RAG · HITL · Evaluation</div>
-        <p class="side-row-desc">
-          Full-stack audit evidence review system combining deterministic guardrails, TF-IDF RAG retrieval,
-          structured agent decisions, citation/grounding validation, evaluation metrics, and human-in-the-loop
-          review. The live Control//Room lets reviewers inspect exact retrieved sources and evidence, trace
-          requirement → guardrail → retrieval → agent → validation lineage, and record Approve / Needs Changes /
-          Reject decisions.
-        </p>
-        <div class="side-row-links">
-          <a class="side-row-link" href="https://seoyoung-audit-evidence.onrender.com/" target="_blank" rel="noopener">LIVE DEMO ↗</a>
-          <a class="side-row-link" href="https://seoyoung-audit-evidence-api.onrender.com/docs" target="_blank" rel="noopener">API DOCS ↗</a>
-          <a class="side-row-link" href="https://github.com/seoyeonglee/audit-evidence-agent" target="_blank" rel="noopener">GITHUB ↗</a>
-        </div>
-        <div class="side-row-tags">
-          <span class="side-row-tag">React</span>
-          <span class="side-row-tag">TypeScript</span>
-          <span class="side-row-tag">FastAPI</span>
-          <span class="side-row-tag">Python</span>
-          <span class="side-row-tag">RAG</span>
-          <span class="side-row-tag">Human-in-the-Loop</span>
-          <span class="side-row-tag">Evaluation</span>
-          <span class="side-row-tag">Traceability</span>
-        </div>
-      </div>
+
       <div class="side-row reveal">
         <div class="side-row-head"><a class="side-row-title" href="https://github.com/seoyeonglee/search-api-benchmark" target="_blank" rel="noopener" style="text-decoration:none;">Search API Benchmark ↗</a><span class="side-row-year">2026</span></div>
         <div class="side-row-ctx">Public Project · API Evaluation</div>
@@ -2611,7 +2658,8 @@
   // --- typing animation in hero (whoami → rotating roles) ---
   const typingEl = $('#heroType');
   const roles = [
-    'software_engineer',
+    'full_stack_engineer',
+    'applied_ai_engineer',
     'game_developer',
     'fraud_risk_engineer',
     'security_engineer',
@@ -2722,7 +2770,7 @@
       { g: 'Navigate', t: 'Go to Studies', h: 'Thesis · Papers', i: '▸', k: 'studies papers thesis research reviews',
         run: () => activate('studies') },
       { g: 'Navigate', t: 'Jump to Contact', h: '#contact', i: '▸', k: 'contact email reach hire',
-        run: () => { activate('overview'); setTimeout(() => { location.hash = '#contact'; }, 120); } },
+        run: () => { activate('overview', { silent: true }); location.hash = '#contact'; $('#contact')?.scrollIntoView({ behavior: 'smooth' }); } },
       { g: 'Navigate', t: 'Jump to Skills & Certs', h: '#stack', i: '▸', k: 'skills stack certs education capability',
         run: () => { activate('overview'); setTimeout(() => { $('#stack')?.scrollIntoView({ behavior: 'smooth' }); }, 120); } },
 
@@ -2737,6 +2785,10 @@
         run: () => copyText('sylee2401@gmail.com') },
       { g: 'Action', t: 'Open GitHub Profile', h: 'github.com/seoyeonglee', i: '→', k: 'github code repository repos development',
         run: () => { window.open('https://github.com/seoyeonglee', '_blank', 'noopener'); } },
+      { g: 'Projects', t: 'FinScope · Usage & Recommendation Intelligence', h: 'React · TypeScript · Explainable Ranking', i: '/', k: 'finscope fintech recommendation analytics synthetic evaluation',
+        run: () => { window.open('https://github.com/seoyeonglee/fintech-usage-recommender', '_blank', 'noopener'); } },
+      { g: 'Projects', t: 'Open FinScope Live Demo', h: 'Interactive analytics and recommendation lab', i: '→', k: 'finscope fintech live demo recommendation ranking weights',
+        run: () => { window.open('https://seoyoung-finscope.onrender.com/', '_blank', 'noopener'); } },
       { g: 'Projects', t: 'High-Throughput Event Platform', h: 'React · FastAPI · Redis · PostgreSQL', i: '/', k: 'fullstack full stack react typescript fastapi redis postgres docker event platform',
         run: () => { window.open('https://github.com/seoyeonglee/high-throughput-event-platform', '_blank', 'noopener'); } },
       { g: 'Projects', t: 'Open Event Platform Live Demo', h: 'Render · Live Service', i: '→', k: 'live demo deployed render fullstack event platform',
@@ -2747,9 +2799,9 @@
         run: () => { window.open('https://github.com/seoyeonglee/crypto-transaction-tracer', '_blank', 'noopener'); } },
       { g: 'Projects', t: 'Open Crypto Tracer Live Demo', h: 'Interactive investigation console', i: '→', k: 'crypto live demo tracer blockchain investigation',
         run: () => { window.open('https://seoyoung-crypto-tracer.onrender.com/', '_blank', 'noopener'); } },
-      { g: 'Projects', t: 'Audit Evidence Agent', h: 'RAG · HITL · Evaluation · Traceability', i: '/', k: 'audit evidence agent rag hitl evaluation traceability fastapi react',
+      { g: 'Projects', t: 'Audit Evidence / Operations', h: 'Source Records · SQL Jobs · Human Review', i: '/', k: 'audit evidence operations agent rag lab tenant role sql jobs approval fastapi react',
         run: () => { window.open('https://github.com/seoyeonglee/audit-evidence-agent', '_blank', 'noopener'); } },
-      { g: 'Projects', t: 'Open Audit Control Room', h: 'Live AI audit review workflow', i: '→', k: 'audit live demo control room rag hitl reviewer',
+      { g: 'Projects', t: 'Open Evidence Operations', h: 'Live source-backed evidence workspace', i: '→', k: 'audit evidence operations live demo workspace source reviewer',
         run: () => { window.open('https://seoyoung-audit-evidence.onrender.com/', '_blank', 'noopener'); } },
       { g: 'Projects', t: 'Fraud Risk Engine', h: 'Python · Explainable Risk', i: '/', k: 'fraud risk engine python rules',
         run: () => { window.open('https://github.com/seoyeonglee/fraud-risk-engine', '_blank', 'noopener'); } },
@@ -2924,9 +2976,9 @@
       setTimeout(runRiskReport, 250);
     }
 
-    // sync hash (but don't stomp #contact)
-    if (!opts.silent && location.hash.replace('#', '') !== 'contact') {
-      history.replaceState(null, '', '#' + tabId);
+    // Explicit tab navigation leaves anchors and preserves Back/Forward history.
+    if (!opts.silent && location.hash !== '#' + tabId) {
+      history.pushState(null, '', '#' + tabId);
     }
   }
 
@@ -2942,16 +2994,20 @@
     });
   });
 
-  // initial tab from hash
-  const initial = (location.hash || '#overview').replace('#', '');
-  const initialTab = ['overview', 'projects', 'studies'].includes(initial) ? initial : 'overview';
-  activate(initialTab, { silent: true });
+  function syncFromHash() {
+    const hash = location.hash.slice(1);
+    const tabId = Object.prototype.hasOwnProperty.call(panels, hash) ? hash : 'overview';
+    activate(tabId, { silent: true });
+    if (hash === 'contact' || hash === 'stack') {
+      // Overview anchors may have been hidden on the previous route.
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'auto' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }
 
-  window.addEventListener('hashchange', () => {
-    const h = location.hash.replace('#', '');
-    if (['overview', 'projects', 'studies'].includes(h)) activate(h, { silent: true });
-    // #contact 같은 경우엔 브라우저 기본 스크롤에 맡김
-  });
+  syncFromHash();
+  window.addEventListener('hashchange', syncFromHash);
 
   // --- theme toggle ---
   const themeToggle = $('#themeToggle');

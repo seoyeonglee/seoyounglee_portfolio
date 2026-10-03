@@ -20,7 +20,7 @@ Source for my public web portfolio.
 
 ## Selected engineering work
 
-- **Hold'em Real-Time Server Lab** — TypeScript, Node.js, WebSocket, CSPRNG shuffle, state machine, side-pot logic, PostgreSQL architecture
+- **Real-Time Multiplayer Game Platform Lab** — TypeScript, Node.js, WebSocket, React/PixiJS, Redis, CSPRNG randomization, authoritative state, game-integrity controls
 - **Fraud Risk Engine** — explainable rule-based fraud scoring on synthetic transactions
 - **Privacy Access Monitor** — behavioral access monitoring and anomaly detection
 - **Crypto Transaction Tracer** — graph-based blockchain transaction investigation

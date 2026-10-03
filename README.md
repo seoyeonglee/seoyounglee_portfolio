@@ -25,7 +25,7 @@ Source for my public web portfolio.
 - **[FinScope](https://github.com/seoyeonglee/fintech-usage-recommender)** — interactive usage analytics, explainable hybrid ranking, cold-start handling, and time-split offline evaluation on synthetic sessions. [Live demo](https://seoyoung-finscope.onrender.com/) · [Evaluation & limitations](https://github.com/seoyeonglee/fintech-usage-recommender/blob/main/docs/model-card.md)
 - **Crypto Transaction Tracer** — graph-based blockchain transaction investigation
 - **High-Throughput Event Platform** — React/FastAPI event platform with Redis Streams and PostgreSQL architecture
-- **Hold'em Real-Time Server Lab** — TypeScript, Node.js, WebSocket, CSPRNG shuffle, and state-machine lab
+- **Real-Time Multiplayer Systems Lab** — TypeScript, Node.js, WebSocket, React/PixiJS, Redis, CSPRNG randomization, authoritative state, game-integrity controls
 - **Privacy Access Monitor** — behavioral access monitoring and anomaly detection
 - **Fraud Risk Engine** — explainable rule-based fraud scoring on synthetic transactions
 - **Search API Benchmark** — reproducible API performance and result-quality benchmark

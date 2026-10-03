@@ -129,3 +129,25 @@ test('existing skills anchor reveals overview and scrolls to the section', async
   assert.equal(selected(w), 'overview');
   assert.ok(scrolled.includes('stack'));
 });
+
+test('main-branch multiplayer naming and links survive portfolio alignment', t => {
+  const w = page(t);
+  const url = 'https://github.com/seoyeonglee/seoyeonglee/tree/main/projects/realtime-game-platform-lab';
+  const title = 'Real-Time Multiplayer Systems Lab';
+  const card = [...w.document.querySelectorAll('#panel-projects .side-row')].find(row => row.textContent.includes(title));
+  assert.ok(card);
+  assert.equal(card.querySelector('.side-row-title').href, url);
+  assert.match(card.querySelector('.side-row-ctx').textContent, /Real-Time Multiplayer Architecture/);
+  assert.match(card.querySelector('.side-row-desc').textContent, /ordered match phases/);
+  assert.match(card.querySelector('.side-row-desc').textContent, /CSPRNG-based fairness randomization/);
+  assert.match(card.querySelector('.side-row-desc').textContent, /layered settlement logic/);
+  assert.match(card.querySelector('.side-row-desc').textContent, /PostgreSQL event history/);
+  w.document.querySelector('#cmdkTrigger').click();
+  const input = w.document.querySelector('#cmdkInput');
+  input.value = 'multiplayer';
+  input.dispatchEvent(new w.Event('input'));
+  assert.match(w.document.querySelector('#cmdkList').textContent, /Real-Time Multiplayer Systems Lab/);
+  const readme = readFileSync(require('node:path').join(__dirname, '../README.md'), 'utf8');
+  assert.match(readme, /Real-Time Multiplayer Systems Lab/);
+  assert.doesNotMatch(html + readme, /Hold'em|holdem-realtime-lab|poker|side-pot|hand-state|hand-history|<<<<<<<|>>>>>>>/i);
+});
